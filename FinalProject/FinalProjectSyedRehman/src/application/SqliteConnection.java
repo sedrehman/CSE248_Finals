@@ -3,15 +3,15 @@ package application;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class SqlConnection {
+public class SqliteConnection {
 	public static Connection connect() {
 		try {
-			//connecting to the database. 
+			//connection to the database;
 			Class.forName("org.sqlite.JDBC");
-			Connection connection = DriverManager.getConnection("jdbc:sqlite:habitalForHumanity.sqlite");
+			Connection connection = DriverManager.getConnection("jdbc:sqlite:habitatForHumanity.sqlite");
 			return connection;
 		}catch(Exception e) {
-			System.out.println("trouble at SqliteConnection.connect()");
+			System.out.println("error connecting sqliteConnection");
 			return null;
 		}
 	}
