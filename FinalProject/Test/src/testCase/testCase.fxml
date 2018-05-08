@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="500.0" minWidth="500.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testCase.ControlClass">
+   <children>
+      <AnchorPane layoutX="97.0" layoutY="76.0" prefHeight="398.0" prefWidth="292.0">
+         <children>
+            <ListView fx:id="theList" layoutX="2.0" layoutY="38.0" prefHeight="359.0" prefWidth="292.0" />
+            <Button fx:id="btnLeft" layoutY="1.0" mnemonicParsing="false" onAction="#setLeftList" prefHeight="37.0" prefWidth="148.0" style="-fx-background-color: transparent;" text="left" />
+            <Button fx:id="btnRight" layoutX="148.0" layoutY="1.0" mnemonicParsing="false" onAction="#setRightList" prefHeight="37.0" prefWidth="148.0" style="-fx-background-color: transparent;" text="right" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

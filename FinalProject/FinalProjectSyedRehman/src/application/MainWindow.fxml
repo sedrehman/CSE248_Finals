@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane minHeight="530.0" minWidth="680.0" prefHeight="530.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="226.0" layoutY="65.0" prefHeight="457.0" prefWidth="523.0" />
+      <AnchorPane layoutX="-1.0" layoutY="2.0" prefHeight="52.0" prefWidth="759.0" style="-fx-background-color: #1F2A47;">
+         <children>
+            <TextField layoutX="221.0" layoutY="18.0" prefHeight="29.0" prefWidth="211.0" promptText="  Search. . . . " style="-fx-background-color: #E0CDC9;" />
+            <Button layoutX="432.0" layoutY="18.0" minWidth="53.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" style="-fx-background-color: transparent;" text="Search" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="65.0" prefHeight="347.0" prefWidth="172.0" style="-fx-background-color: #9ED6DE;">
+         <children>
+            <ListView fx:id="DepartmentListView" prefHeight="347.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
-

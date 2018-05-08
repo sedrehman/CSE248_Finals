@@ -5,18 +5,34 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="500.0" minWidth="650.0" style="-fx-background-color: #808000;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginControl">
+<AnchorPane minHeight="450.0" minWidth="650.0" prefHeight="450.0" prefWidth="683.0" style="-fx-background-color: #4A0A0A;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginControl">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
    <children>
-      <Label fx:id="isConnectedLabel" layoutX="112.0" layoutY="106.0" prefHeight="46.0" prefWidth="161.0" />
-      <PasswordField fx:id="passwordField" layoutX="201.0" layoutY="262.0" />
-      <TextField fx:id="userNameField" layoutX="201.0" layoutY="210.0" />
-      <Label layoutX="114.0" layoutY="215.0" prefHeight="17.0" prefWidth="60.0" text="Email:" textFill="#720101" />
-      <Label layoutX="112.0" layoutY="267.0" text="Password:" textFill="#7c0000" />
-      <Button fx:id="loginButton" layoutX="115.0" layoutY="332.0" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="88.0" style="-fx-background-color: #9acd32;" text="Log in!" textFill="#ab0000" />
+      <ImageView fitHeight="420.0" fitWidth="363.0" layoutX="313.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logInLogo.jpg" />
+         </image></ImageView>
+      <AnchorPane layoutX="14.0" layoutY="15.0" prefHeight="242.0" prefWidth="283.0" style="-fx-background-color: #351109;">
+         <children>
+            <Label layoutX="20.0" layoutY="36.0" prefHeight="17.0" prefWidth="60.0" text=" Email:" textFill="WHITE" />
+            <Label layoutY="70.0" text="Password:" textFill="WHITE" />
+            <TextField fx:id="userNameField" layoutX="80.0" layoutY="30.0" prefHeight="29.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: gray;" />
+            <PasswordField fx:id="passwordField" layoutX="80.0" layoutY="64.0" prefHeight="29.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: gray;" />
+            <Button fx:id="loginButton" layoutX="80.0" layoutY="122.0" mnemonicParsing="false" onAction="#login" prefHeight="29.0" prefWidth="75.0" style="-fx-background-color: transparent; -fx-border-color: green;" text="Log in!" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="34.0" layoutY="265.0" prefHeight="172.0" prefWidth="239.0">
+         <children>
+            <Button layoutX="-2.0" layoutY="54.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Create a New Account" textFill="WHITE" />
+            <Button layoutX="-1.0" layoutY="85.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Forgot Password?" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <Label fx:id="isConnectedLabel" layoutX="570.0" layoutY="13.0" prefHeight="27.0" prefWidth="77.0" textFill="WHITE" />
    </children>
 </AnchorPane>

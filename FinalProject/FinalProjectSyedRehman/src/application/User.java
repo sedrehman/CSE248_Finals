@@ -8,18 +8,18 @@ public class User {
 	private String email;
 	private String password;
 	private String address;
-	private ArrayList<Item> Cart;
-	private Orderlist orderList;
-	public User(String firstName, String lastName, String email, String password, String address, ArrayList<Item> cart,
-			Orderlist orderList) {
+	private String cartItems;
+	private String orders;
+	public User(String firstName, String lastName, String email, String password, String address, String cartItems,
+			String orders) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.address = address;
-		Cart = cart;
-		this.orderList = orderList;
+		this.cartItems = cartItems;
+		this.orders = orders;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -51,22 +51,23 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public ArrayList<Item> getCart() {
-		return Cart;
+	public String getCartItems() {
+		return cartItems;
 	}
-	public void setCart(ArrayList<Item> cart) {
-		Cart = cart;
+	public void setCartItems(String cartItems) {
+		this.cartItems = cartItems;
 	}
-	public Orderlist getOrderList() {
-		return orderList;
+	public String getOrders() {
+		return orders;
 	}
-	public void setOrderList(Orderlist orderList) {
-		this.orderList = orderList;
+	public void setOrders(String orders) {
+		this.orders = orders;
 	}
 	@Override
 	public String toString() {
 		return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password=" + password
-				+ ", address=" + address + ", Cart=" + Cart + ", orderList=" + orderList + "]";
+				+ ", address=" + address + ", cartItems=" + cartItems + ", orders=" + orders + "]";
 	}
+	
 	
 }

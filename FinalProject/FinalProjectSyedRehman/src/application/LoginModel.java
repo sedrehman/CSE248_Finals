@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class LoginModel {
 	private Connection connection;
@@ -31,6 +32,9 @@ public class LoginModel {
 		ResultSet resultSet = null;
 		String query = "select * from UserList where email = ? and password = ?";
 		try {
+			//ResultSet is the row in the data-structure table it goes row by row till the end
+			//preparedStatement can load a query (sql command) and execute it.
+			
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, userName);
 			preparedStatement.setString(2, password);
@@ -53,4 +57,27 @@ public class LoginModel {
 			}
 		}
 	}
+	
+	public User getUser(String emailAddress) {
+		String sql = "SELECT firstName, lastName, email, password, address, cart, orders FROM UserList WHERE email = ?";
+		User user = null;
+		try {
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(sql) ;
+
+			// loop through the result set
+			while (rs.next()) {
+				//this should work.
+				user = new User(rs.getString("firstName"), rs.getString("lastName"), rs.getString("email"), 
+						rs.getString("password"), rs.getString("address"), rs.getString("cartItems"), 
+						rs.getString("orders"));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+		return user;
+	}
+	
+	
 }
