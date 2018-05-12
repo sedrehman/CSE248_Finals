@@ -1,33 +1,22 @@
 package p1;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SQLiteTest {
+public class LoadItems {
 	
 	private Map <String, Item> itemList = new HashMap<String, Item>();
+	Connection conn = SQLConnection.connect();
 	
-	public Connection connect() {
-		Connection conn = null;
-		try {
-			Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:sqlite:habitatForHumanity.sqlite");
-			System.out.println("coonected to DB");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			return null;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-		return conn;
-	}
-	
-	public void LoadItems() {
+	public void LoadTheItems() {
 		String sql = "SELECT * FROM ItemList";
 		try {
 			//wont do this before creating an object of this class... so it will create a connection first..
-			Connection conn = this.connect();
+			
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			
@@ -37,12 +26,11 @@ public class SQLiteTest {
 				itemList.put(temp.getName(), temp);
 				System.out.println(temp.toString());
 			}
+			conn.close();
+			
 		} catch (SQLException e) {
 			System.out.println("problem at the itemList");
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
 }

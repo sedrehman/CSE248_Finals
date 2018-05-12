@@ -10,7 +10,7 @@ public class LoginModel {
 	private Connection connection;
 	
 	public LoginModel() {
-		connection = SqliteConnection.connect();
+		connection = SqliteLogInConnection.connect();
 		if (connection == null) {
 			//if the connection is null then there is no point in continuing the application. 
 			// it will exit out of the application.

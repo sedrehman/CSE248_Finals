@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="530.0" minWidth="680.0" prefHeight="530.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minHeight="530.0" minWidth="680.0" prefHeight="530.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
    <children>
-      <AnchorPane layoutX="226.0" layoutY="65.0" prefHeight="457.0" prefWidth="523.0" />
+      <AnchorPane layoutX="177.0" layoutY="65.0" prefHeight="457.0" prefWidth="572.0" styleClass="bodybg" />
       <AnchorPane layoutX="-1.0" layoutY="2.0" prefHeight="52.0" prefWidth="759.0" style="-fx-background-color: #1F2A47;">
          <children>
-            <TextField layoutX="221.0" layoutY="18.0" prefHeight="29.0" prefWidth="211.0" promptText="  Search. . . . " style="-fx-background-color: #E0CDC9;" />
-            <Button layoutX="432.0" layoutY="18.0" minWidth="53.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" style="-fx-background-color: transparent;" text="Search" />
+            <TextField layoutX="247.0" layoutY="18.0" prefHeight="29.0" prefWidth="211.0" promptText="  Search. . . . " style="-fx-background-color: #E0CDC9;" />
+            <Button layoutX="462.0" layoutY="18.0" minWidth="53.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" style="-fx-background-color: transparent;" text="Search" />
          </children></AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="65.0" prefHeight="347.0" prefWidth="172.0" style="-fx-background-color: #9ED6DE;">
+      <AnchorPane layoutX="11.0" layoutY="67.0" prefHeight="261.0" prefWidth="150.0" style="-fx-background-color: #3B484A;">
          <children>
-            <ListView fx:id="DepartmentListView" prefHeight="347.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
+            <Button layoutY="-2.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Home" />
+            <Button fx:id="bathroomButton" layoutY="30.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Bathroom " />
+            <Button fx:id="buildingButton" layoutY="63.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Building Materials" />
+            <Button fx:id="electronicButton" layoutY="96.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Electronics" />
+            <Button fx:id="furnitureButton" layoutY="129.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Furnitures" />
+            <Button fx:id="hardwareButton" layoutY="162.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Hardware" />
+            <Button fx:id="kitchenButton" layoutY="195.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Kitchen" />
+            <Button fx:id="outdoorButton" layoutY="228.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Outdoors" />
          </children>
       </AnchorPane>
    </children>
