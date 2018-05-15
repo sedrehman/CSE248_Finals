@@ -6,11 +6,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import p1.SQLConnection;
-
 public class KitchenDepartment {
-	private ArrayList <String> kitchenItemList = new ArrayList<>();
+	private ArrayList <Item> itemList = new ArrayList<>();
 	Connection conn = SQLConnection.connect();
+	private LoadItems li = new LoadItems();
+
 	
 	public void LoadTheItems() {
 		String sql = "SELECT * FROM Kitchen_Items";
@@ -22,7 +22,12 @@ public class KitchenDepartment {
 			
 			while(rs.next()) {
 				String name = rs.getString("name");
-				kitchenItemList.add(name);
+				String purpose = rs.getString("purpose");
+				String material = rs.getString("materials");
+				String other = "Purpose: " + purpose +"\n" +"Materials: " + material;
+				Item item = li.getItem(name);
+				item.setOtherInfo(other);
+				itemList.add(item);
 			}
 			conn.close();
 			
@@ -32,12 +37,12 @@ public class KitchenDepartment {
 		}
 	}
 
-	public ArrayList<String> getKitchenItemList() {
-		return kitchenItemList;
+	public ArrayList<Item> getItemList() {
+		return itemList;
 	}
 
-	public void setKitchenItemList(ArrayList<String> kitchenItemList) {
-		this.kitchenItemList = kitchenItemList;
+	public void setItemList(ArrayList<Item> itemList) {
+		this.itemList = itemList;
 	}
 	
 }

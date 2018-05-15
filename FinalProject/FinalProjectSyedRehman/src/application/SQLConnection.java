@@ -2,9 +2,6 @@ package application;
 import java.sql.*;
 
 public class SQLConnection {
-	
-	
-	
 	public static Connection connect() {
 		Connection conn = null;
 		try {

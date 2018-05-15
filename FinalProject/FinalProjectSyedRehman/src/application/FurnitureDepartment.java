@@ -6,11 +6,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import p1.SQLConnection;
-
 public class FurnitureDepartment {
-	private ArrayList <String> furnitureItemList = new ArrayList<>();
+	private ArrayList <Item> itemList = new ArrayList<>();
 	Connection conn = SQLConnection.connect();
+	private LoadItems li = new LoadItems();
 	
 	public void LoadTheItems() {
 		String sql = "SELECT * FROM Furniture_Items";
@@ -22,7 +21,17 @@ public class FurnitureDepartment {
 			
 			while(rs.next()) {
 				String name = rs.getString("name");
-				furnitureItemList.add(name);
+				String length = rs.getString("length");
+				String width =  rs.getString("width");
+				String height = rs.getString("height");
+				String weight = rs.getString("weight");
+				String materials = rs.getString("materials");
+				String other = "Length: " + length + "\nWidth: "+ width + "\nHeigth: " + height + "\nWeight: " + 
+						weight + "\nMaterials: " + materials;
+						
+				Item item = li.getItem(name);
+				item.setOtherInfo(other);
+				itemList.add(item);
 			}
 			conn.close();
 		} catch (SQLException e) {
@@ -31,12 +40,12 @@ public class FurnitureDepartment {
 		}
 	}
 
-	public ArrayList<String> getFurnitureItemList() {
-		return furnitureItemList;
+	public ArrayList<Item> getItemList() {
+		return itemList;
 	}
 
-	public void setFurnitureItemList(ArrayList<String> furnitureItemList) {
-		this.furnitureItemList = furnitureItemList;
+	public void setItemList(ArrayList<Item> itemList) {
+		this.itemList = itemList;
 	}
 	
 }

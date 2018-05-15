@@ -4,9 +4,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="530.0" minWidth="680.0" prefHeight="530.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+<AnchorPane minHeight="530.0" minWidth="680.0" prefHeight="530.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DepartmentControl">
    <children>
-      <AnchorPane layoutX="177.0" layoutY="65.0" prefHeight="457.0" prefWidth="572.0" styleClass="bodybg" />
+      <AnchorPane fx:id="ap" layoutX="177.0" layoutY="65.0" prefHeight="457.0" prefWidth="572.0" styleClass="bodybg" />
       <AnchorPane layoutX="-1.0" layoutY="2.0" prefHeight="52.0" prefWidth="759.0" style="-fx-background-color: #1F2A47;">
          <children>
             <TextField layoutX="247.0" layoutY="18.0" prefHeight="29.0" prefWidth="211.0" promptText="  Search. . . . " style="-fx-background-color: #E0CDC9;" />
@@ -15,13 +15,13 @@
       <AnchorPane layoutX="11.0" layoutY="67.0" prefHeight="261.0" prefWidth="150.0" style="-fx-background-color: #3B484A;">
          <children>
             <Button layoutY="-2.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Home" />
-            <Button fx:id="bathroomButton" layoutY="30.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Bathroom " />
-            <Button fx:id="buildingButton" layoutY="63.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Building Materials" />
-            <Button fx:id="electronicButton" layoutY="96.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Electronics" />
-            <Button fx:id="furnitureButton" layoutY="129.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Furnitures" />
-            <Button fx:id="hardwareButton" layoutY="162.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Hardware" />
-            <Button fx:id="kitchenButton" layoutY="195.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Kitchen" />
-            <Button fx:id="outdoorButton" layoutY="228.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Outdoors" />
+            <Button fx:id="bathroomButton" layoutY="30.0" mnemonicParsing="false" onAction="#bathroomSet" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Bathroom " />
+            <Button fx:id="buildingButton" layoutY="63.0" mnemonicParsing="false" onAction="#buildingSet" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Building Materials" />
+            <Button fx:id="electronicButton" layoutY="96.0" mnemonicParsing="false" onAction="#electronicsSet" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Electronics" />
+            <Button fx:id="furnitureButton" layoutY="129.0" mnemonicParsing="false" onAction="#furnitureSet" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Furnitures" />
+            <Button fx:id="hardwareButton" layoutY="162.0" mnemonicParsing="false" onAction="#hardwareSet" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Hardware" />
+            <Button fx:id="kitchenButton" layoutY="195.0" mnemonicParsing="false" onAction="#kitchenSet" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Kitchen" />
+            <Button fx:id="outdoorButton" layoutY="228.0" mnemonicParsing="false" onAction="#outdoorSet" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Outdoors" />
          </children>
       </AnchorPane>
    </children>

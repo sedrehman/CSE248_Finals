@@ -7,7 +7,7 @@ public class Item {
 	private String StockLocation;
 	private int quantity;
 	private String otherInfo;
-	private String Brand;
+	private String brand;
 	private String safety;
 	
 	public Item(String name, double price, int itemNumber, String stockLocation, int quantity, String otherInfo,
@@ -19,7 +19,7 @@ public class Item {
 		StockLocation = stockLocation;
 		this.quantity = quantity;
 		this.otherInfo = otherInfo;
-		Brand = brand;
+		brand = brand;
 		this.safety = safety;
 	}
 
@@ -72,11 +72,11 @@ public class Item {
 	}
 
 	public String getBrand() {
-		return Brand;
+		return brand;
 	}
 
 	public void setBrand(String brand) {
-		Brand = brand;
+		this.brand = brand;
 	}
 
 	public String getSafety() {
@@ -90,7 +90,7 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item [name=" + name + ", price=" + price + ", itemNumber=" + itemNumber + ", StockLocation="
-				+ StockLocation + ", quantity=" + quantity + ", otherInfo=" + otherInfo + ", Brand=" + Brand
+				+ StockLocation + ", quantity=" + quantity + ", otherInfo=" + otherInfo + ", Brand=" + brand
 				+ ", safety=" + safety + "]";
 	}
 	
