@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class LoginModel {
 	private Connection connection;
-	
+	private User user;
 	public LoginModel() {
 		connection = SqliteLogInConnection.connect();
 		if (connection == null) {
@@ -29,7 +29,7 @@ public class LoginModel {
 	
 	public boolean isLogin(String userName, String password) {
 		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
+		ResultSet rs = null;
 		String query = "select * from UserList where email = ? and password = ?";
 		try {
 			//ResultSet is the row in the data-structure table it goes row by row till the end
@@ -38,8 +38,11 @@ public class LoginModel {
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, userName);
 			preparedStatement.setString(2, password);
-			resultSet = preparedStatement.executeQuery();
-			if(resultSet.next()) {
+			rs = preparedStatement.executeQuery();
+			if(rs.next()) {
+				  user = new User(rs.getString("firstName"), rs.getString("lastName"), rs.getString("email"), 
+						rs.getString("password"), rs.getString("address"), rs.getString("cartItems"), 
+						rs.getString("orders"));
 				return true;
 			}else {
 				return false;
@@ -49,7 +52,7 @@ public class LoginModel {
 			return false;
 		}finally {
 			try {
-				resultSet.close();
+				rs.close();
 				preparedStatement.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -79,5 +82,8 @@ public class LoginModel {
 		return user;
 	}
 	
+	public User getUser() {
+		return this.user;
+	}
 	
 }

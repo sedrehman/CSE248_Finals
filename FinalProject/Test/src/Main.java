@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -22,12 +23,16 @@ public class Main extends Application{
 		*/
 		
 		//https://www.habitat.org/
-		VBox pane = new VBox();
-		pane.setPrefSize(572, 457);
-		WebView web = new WebView();
-		WebEngine engine = web.getEngine();
-		engine.load("https://www.habitat.org/");
-		pane.getChildren().add(web);
+		LoginView lv  = new LoginView();
+		Pane pane = new Pane();
+		pane.getChildren().add(lv.getLogInPane());
+		//pane.setPrefSize(610, 450);
+		
+//		WebView web = new WebView();
+//		WebEngine engine = web.getEngine();
+//		engine.load("https://www.habitat.org/");
+	//	pane.getChildren().add(web);
+		
 		primaryStage.setScene(new Scene(pane));
 		primaryStage.show();
 	}

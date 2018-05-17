@@ -1,3 +1,4 @@
+package application;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -17,6 +18,7 @@ public class LoginView {
 	private Button loginButton;
 	private Button createAccount;
 	private Button forgotPassword;
+	private LoginControl control;
 	
 	//-fx-background-color: lightBlue; 
 	public AnchorPane getLogInPane() {
@@ -61,6 +63,9 @@ public class LoginView {
 		loginButton.setLayoutX(80);
 		loginButton.setLayoutY(122);
 		loginButton.setPrefSize(75, 30);
+		loginButton.setOnAction(e->{
+			control.login(tEmail.getText(), pf.getText());
+		});
 		
 		createAccount = new Button("Create an Account!");
 		createAccount.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");

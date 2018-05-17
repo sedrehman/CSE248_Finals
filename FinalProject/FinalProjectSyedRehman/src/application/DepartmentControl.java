@@ -40,7 +40,7 @@ public class DepartmentControl {
 	@FXML
 	private Pane ap = hd.getHomePane();//DisplayAP.getAp();
 	//"-fx-background-color: #9FB2C4; "
-	
+	private static User user;
 	//ap = hd.
 	
 	@FXML 
@@ -195,6 +195,11 @@ public class DepartmentControl {
 		//now the itemList and the pane is clean to work on.!
 	}
 	
-	
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public User getUser() {
+		return this.user;
+	}
 	
 }

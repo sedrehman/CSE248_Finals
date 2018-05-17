@@ -11,33 +11,36 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class LoginControl implements Initializable{
-	@FXML 
-	private Label isConnectedLabel;
-	@FXML
-	private TextField userNameField;
-	@FXML
-	private PasswordField passwordField;
-	@FXML
-	private Button loginButton;
-	
+	private User user;
 	private LoginModel loginModel = new LoginModel();
+	private DepartmentControl dc;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		if(loginModel.isConnected()) {	//if connection is open
-			isConnectedLabel.setText("Connected");
+			//isConnectedLabel.setText("Connected");
+			user = loginModel.getUser();
+			dc.setUser(user);
 		}else {
-			isConnectedLabel.setText("Not Connected");
+			//isConnectedLabel.setText("Not Connected");
 		}
 	}
 	
-	public void login() {
-		if(loginModel.isLogin(userNameField.getText(), passwordField.getText())) {
-			isConnectedLabel.setText("logged in!");
+	public void login(String userName, String password) {
+		if(loginModel.isLogin(userName, password)) {
+			//isConnectedLabel.setText("logged in!");
 		}else {
-			isConnectedLabel.setText("not logged in");
+			//isConnectedLabel.setText("not logged in");
 		}
 		
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 	
