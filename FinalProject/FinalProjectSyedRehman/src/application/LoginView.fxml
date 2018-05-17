@@ -5,34 +5,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="450.0" minWidth="650.0" prefHeight="450.0" prefWidth="683.0" style="-fx-background-color: #4A0A0A;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginControl">
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-   <children>
-      <ImageView fitHeight="420.0" fitWidth="363.0" layoutX="313.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@logInLogo.jpg" />
-         </image></ImageView>
-      <AnchorPane layoutX="14.0" layoutY="15.0" prefHeight="242.0" prefWidth="283.0" style="-fx-background-color: #351109;">
-         <children>
-            <Label layoutX="20.0" layoutY="36.0" prefHeight="17.0" prefWidth="60.0" text=" Email:" textFill="WHITE" />
-            <Label layoutY="70.0" text="Password:" textFill="WHITE" />
-            <TextField fx:id="userNameField" layoutX="80.0" layoutY="30.0" prefHeight="29.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: gray;" />
-            <PasswordField fx:id="passwordField" layoutX="80.0" layoutY="64.0" prefHeight="29.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: gray;" />
-            <Button fx:id="loginButton" layoutX="80.0" layoutY="122.0" mnemonicParsing="false" onAction="#login" prefHeight="29.0" prefWidth="75.0" style="-fx-background-color: transparent; -fx-border-color: green;" text="Log in!" textFill="WHITE" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="34.0" layoutY="265.0" prefHeight="172.0" prefWidth="239.0">
-         <children>
-            <Button layoutX="-2.0" layoutY="54.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Create a New Account" textFill="WHITE" />
-            <Button layoutX="-1.0" layoutY="85.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Forgot Password?" textFill="WHITE" />
-         </children>
-      </AnchorPane>
-      <Label fx:id="isConnectedLabel" layoutX="570.0" layoutY="13.0" prefHeight="27.0" prefWidth="77.0" textFill="WHITE" />
-   </children>
+<AnchorPane minHeight="450.0" minWidth="610.0" prefHeight="537.0" prefWidth="610.0" style="-fx-background-color: #4A0A0A;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginControl">
+	<opaqueInsets>
+		<Insets />
+	</opaqueInsets>
+	<children>
+      <AnchorPane layoutX="6.0" layoutY="7.0" prefHeight="444.0" prefWidth="135.0" style="-fx-background-color: #391109;" />
+		<AnchorPane layoutX="295.0" layoutY="69.0" prefHeight="341.0" prefWidth="292.0" style="-fx-background-color: #351109;">
+			<children>
+				<Label layoutX="31.0" layoutY="36.0" prefHeight="17.0" prefWidth="51.0" text=" Email:" textFill="WHITE" />
+				<Label layoutX="8.0" layoutY="70.0" prefHeight="17.0" prefWidth="80.0" text="Password:" textFill="WHITE" />
+				<TextField fx:id="userNameField" layoutX="86.0" layoutY="30.0" prefHeight="30.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: gray;" />
+				<PasswordField fx:id="passwordField" layoutX="86.0" layoutY="64.0" prefHeight="30.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: gray;" />
+				<Button fx:id="loginButton" layoutX="80.0" layoutY="122.0" mnemonicParsing="false" onAction="#login" prefHeight="29.0" prefWidth="75.0" style="-fx-background-color: transparent; -fx-border-color: green;" text="Log in!" textFill="WHITE" />
+				<Button layoutX="77.0" layoutY="228.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Forgot Password?" textFill="WHITE" />
+				<Button layoutX="77.0" layoutY="195.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Create a New Account" textFill="WHITE" />
+			</children>
+		</AnchorPane>
+		<Label fx:id="isConnectedLabel" layoutX="298.0" layoutY="27.0" prefHeight="27.0" prefWidth="77.0" textFill="WHITE" />
+      <AnchorPane layoutX="77.0" layoutY="56.0" prefHeight="450.0" prefWidth="200.0" style="-fx-background-color: #231109;" />
+	</children>
 </AnchorPane>

@@ -24,12 +24,11 @@ public class ItemDisplay {
 	private VBox vPane ;
 	private AnchorPane mainPane;
 	private AnchorPane imgPane;
-	
 	public ItemDisplay() {
 		//empty parameter;
 	}
 	
-	public Pane itemDisplayPane(Item item) {
+	public Pane itemDisplayPane(Item item, CartModel cart) {
 		mainPane = new AnchorPane();
 		mainPane.setPrefHeight(420);
 		mainPane.setPrefWidth(530);
@@ -67,7 +66,7 @@ public class ItemDisplay {
 		safety = new Label();
 		add = new Button("Add to Cart");
 		add.setOnAction(e->{
-			
+			cart.addtoCart(item);
 		});
 		
 		name.setText(item.getName());

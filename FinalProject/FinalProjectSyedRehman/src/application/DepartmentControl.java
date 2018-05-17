@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,9 +14,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 public class DepartmentControl {
+	@FXML
+	private Button homeButton = new Button(" home ");
 	@FXML
 	private Button bathroomButton = new Button(" Bathroom ");
 	@FXML
@@ -30,9 +36,13 @@ public class DepartmentControl {
 	private Button kitchenButton = new Button(" Kitchen ");
 	@FXML
 	private Button outdoorButton = new Button(" Outdoors ");
+	private HomeDisplay hd = new HomeDisplay();
 	@FXML
-	private AnchorPane ap = DisplayAP.getAp();
+	private Pane ap = hd.getHomePane();//DisplayAP.getAp();
 	//"-fx-background-color: #9FB2C4; "
+	
+	//ap = hd.
+	
 	@FXML 
 	private ObservableList<String> obList = FXCollections.observableArrayList();
 	@FXML 
@@ -41,9 +51,18 @@ public class DepartmentControl {
 	private ItemDisplay itemDisplay = new ItemDisplay();
 	private LoadItems loadItems = new LoadItems();
 	public static Item chosenItem;
-	//private ArrayList<Items>cartItems
+	private CartModel cart = new CartModel();
 	
-	
+	public void homeSet(ActionEvent event) {
+		cleaningMethod();
+		VBox webVpane = new VBox();
+		webVpane.setPrefSize(572, 457);
+		WebView web = new WebView();
+		WebEngine engine = web.getEngine();
+		engine.load("https://www.habitat.org/");
+		webVpane.getChildren().add(web);
+		ap.getChildren().add(webVpane);
+	}
 	
 	public void bathroomSet(ActionEvent event) {
 		cleaningMethod();
@@ -150,7 +169,7 @@ public class DepartmentControl {
 				//newValue is just a String here. Its the name of the item;
 				ap.getChildren().clear();
 				chosenItem = loadItems.getItem(newValue);	//takes the newValue and find the item with that name;
-				Pane pane = itemDisplay.itemDisplayPane(chosenItem);
+				Pane pane = itemDisplay.itemDisplayPane(chosenItem, cart);
 				ap.getChildren().add(pane);
 				
 			}else {
@@ -175,8 +194,6 @@ public class DepartmentControl {
 		obList.clear();	
 		//now the itemList and the pane is clean to work on.!
 	}
-	
-	
 	
 	
 	
