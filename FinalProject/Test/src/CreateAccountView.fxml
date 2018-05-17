@@ -9,19 +9,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="457.0" prefWidth="572.0" style="-fx-background-color: #84A314;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateAccountController">
+<AnchorPane prefHeight="457.0" prefWidth="572.0" style="-fx-background-color: #84A314;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane layoutX="174.0" layoutY="146.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFF8D6;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <VBox layoutX="301.0" layoutY="38.0" prefHeight="360.0" prefWidth="237.0" spacing="20.0">
                <children>
-                  <TextField fx:id="fName" style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
-                  <TextField fx:id="lName" style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
-                  <TextField fx:id="add1" style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
-                  <TextField fx:id="add2" style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
-                  <TextField fx:id="email" style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
-                  <PasswordField fx:id="password" style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
-                  <Button fx:id="button" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="27.0" prefWidth="103.0" style="-fx-background-color: transparant; -fx-border-color: #40E5AF;" text="Create!" textFill="#239700" />
+                  <TextField style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
+                  <TextField style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
+                  <TextField style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
+                  <TextField style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
+                  <TextField style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
+                  <PasswordField style="-fx-background-color: transparent; -fx-border-color: #F0E5AF;" />
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="103.0" style="-fx-background-color: transparant; -fx-border-color: #40E5AF;" text="Create!" textFill="#239700" />
                </children>
             </VBox>
             <VBox layoutX="216.0" layoutY="37.0" prefHeight="291.0" prefWidth="78.0" spacing="22.0">
@@ -36,7 +36,7 @@
             </VBox>
             <ImageView fitHeight="306.0" fitWidth="188.0" layoutX="13.0" layoutY="36.0">
                <image>
-                  <Image url="@createAccountLogo.jpg" />
+                  <Image url="@../../FinalProjectSyedRehman/src/application/createAccountLogo.jpg" />
                </image>
             </ImageView>
          </children>

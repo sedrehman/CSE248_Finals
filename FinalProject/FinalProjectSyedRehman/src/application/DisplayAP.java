@@ -4,6 +4,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class DisplayAP {
 private static AnchorPane ap;
+private HomeDisplay hd = new HomeDisplay();
 	
 	public DisplayAP(AnchorPane ap) {
 		this.ap = ap;
@@ -12,6 +13,8 @@ private static AnchorPane ap;
 		ap.setPrefSize(457, 572);
 		ap.setLayoutX(177);
 		ap.setLayoutY(65);
+		ap.getChildren().add(hd.getHomePane());
+		
 	}
 
 	public static AnchorPane getAp() {

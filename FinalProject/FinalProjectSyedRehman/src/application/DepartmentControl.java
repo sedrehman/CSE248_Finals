@@ -1,13 +1,16 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,7 +22,9 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
-public class DepartmentControl {
+public class DepartmentControl implements Initializable{
+	@FXML
+	private Button loginButton = new Button();
 	@FXML
 	private Button homeButton = new Button(" home ");
 	@FXML
@@ -36,28 +41,32 @@ public class DepartmentControl {
 	private Button kitchenButton = new Button(" Kitchen ");
 	@FXML
 	private Button outdoorButton = new Button(" Outdoors ");
-	private HomeDisplay hd = new HomeDisplay();
 	@FXML
-	private Pane ap = hd.getHomePane();//DisplayAP.getAp();
-	//"-fx-background-color: #9FB2C4; "
-	private static User user;
-	//ap = hd.
-	
+	private Pane ap = DisplayAP.getAp();
+	@FXML
+	private WebView web;
 	@FXML 
 	private ObservableList<String> obList = FXCollections.observableArrayList();
 	@FXML 
 	private ListView<String> itemList = new ListView<>(obList);
+	@FXML
+	private Button profileButton;
+	
+	
 	
 	private ItemDisplay itemDisplay = new ItemDisplay();
 	private LoadItems loadItems = new LoadItems();
 	public static Item chosenItem;
 	private CartModel cart = new CartModel();
+	private static User user;
+	private HomeDisplay hd = new HomeDisplay();
+	
 	
 	public void homeSet(ActionEvent event) {
 		cleaningMethod();
+		homeButton.setStyle("-fx-background-color: #9FB2C4; ");
 		VBox webVpane = new VBox();
 		webVpane.setPrefSize(572, 457);
-		WebView web = new WebView();
 		WebEngine engine = web.getEngine();
 		engine.load("https://www.habitat.org/");
 		webVpane.getChildren().add(web);
@@ -158,7 +167,21 @@ public class DepartmentControl {
 		itemSelected();	//this is when someone selects an item!
 	}
 	
+	public void profileSet(ActionEvent event) {
+		
+	}
 	
+	public void createAccount() {
+	cleaningMethod();
+	Pane root;
+	try {
+		root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
+		ap.getChildren().add(root);
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}	
+	}
 	
 	
 	private void itemSelected() {
@@ -179,6 +202,7 @@ public class DepartmentControl {
 	}
 	
 	private void cleaningMethod() {
+		homeButton.setStyle("-fx-background-color: transparent; ");
 		bathroomButton.setStyle("-fx-background-color: transparent; ");
 		buildingButton.setStyle("-fx-background-color: transparent; ");
 		electronicButton.setStyle("-fx-background-color: transparent; ");
@@ -195,11 +219,24 @@ public class DepartmentControl {
 		//now the itemList and the pane is clean to work on.!
 	}
 	
+	public void logIn(ActionEvent event) {
+		cleaningMethod();
+		LoginView liv = new LoginView();
+		ap.getChildren().add(liv.getLogInPane());
+	}
+	
 	public void setUser(User user) {
 		this.user = user;
 	}
 	public User getUser() {
 		return this.user;
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		WebEngine engine = web.getEngine();
+		engine.load("https://www.habitat.org/");
 	}
 	
 }
