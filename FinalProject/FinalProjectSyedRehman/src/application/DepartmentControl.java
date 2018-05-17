@@ -1,14 +1,19 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class DepartmentControl {
 	@FXML
@@ -32,59 +37,32 @@ public class DepartmentControl {
 	private ObservableList<String> obList = FXCollections.observableArrayList();
 	@FXML 
 	private ListView<String> itemList = new ListView<>(obList);
+	
 	private ItemDisplay itemDisplay = new ItemDisplay();
 	private LoadItems loadItems = new LoadItems();
+	public static Item chosenItem;
+	//private ArrayList<Items>cartItems
+	
+	
 	
 	public void bathroomSet(ActionEvent event) {
-		bathroomButton.setStyle("-fx-background-color: transparent; ");
-		buildingButton.setStyle("-fx-background-color: transparent; ");
-		electronicButton.setStyle("-fx-background-color: transparent; ");
-		furnitureButton.setStyle("-fx-background-color: transparent; ");
-		hardwareButton.setStyle("-fx-background-color: transparent; ");
-		kitchenButton.setStyle("-fx-background-color: transparent; ");
-		outdoorButton.setStyle("-fx-background-color: transparent; ");
-		
-		ap.getChildren().clear();
-		itemList.getItems().clear();
-		itemList.getSelectionModel().clearSelection();     //clears out the itemList and obList first.
-		obList.clear();
+		cleaningMethod();
 		bathroomButton.setStyle("-fx-background-color: #9FB2C4; ");
 		BathroomDepartment bathroomDep = new BathroomDepartment();	
-		bathroomDep.loadBathroomItems();
+		bathroomDep.loadBathroomItems();		//loads the bathroom Items;
 		for(int i = 0; i< bathroomDep.getItemList().size(); i++) {
 			obList.add(bathroomDep.getItemList().get(i).getName());
 		}
+		//added the bathroom items to the list.
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
+		//added the list to the pane!
 		
-		itemList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-			if (newValue != null) {
-				ap.getChildren().clear();
-				Item a1 = loadItems.getItem(newValue);
-				VBox pane = itemDisplay.getItemDisplay(a1);
-				pane.setAlignment(Pos.CENTER);
-				ap.getChildren().add(pane);
-				
-			}else {
-				//nada
-			}
-		});
-		
+		itemSelected();	//this is when someone selects an item!
 	}
 	
 	public void buildingSet(ActionEvent event) {
-		bathroomButton.setStyle("-fx-background-color: transparent; ");
-		buildingButton.setStyle("-fx-background-color: transparent; ");
-		electronicButton.setStyle("-fx-background-color: transparent; ");
-		furnitureButton.setStyle("-fx-background-color: transparent; ");
-		hardwareButton.setStyle("-fx-background-color: transparent; ");
-		kitchenButton.setStyle("-fx-background-color: transparent; ");
-		outdoorButton.setStyle("-fx-background-color: transparent; ");
-		
-		ap.getChildren().clear();
-		itemList.getItems().clear();
-		itemList.getSelectionModel().clearSelection();     //clears out the itemList and obList first.
-		obList.clear();
+		cleaningMethod();
 		buildingButton.setStyle("-fx-background-color: #9FB2C4; ");
 		BuildingDepartment buildingDep = new BuildingDepartment();	
 		buildingDep.LoadTheItems();
@@ -93,35 +71,11 @@ public class DepartmentControl {
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		
-		itemList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-			if (newValue != null) {
-				ap.getChildren().clear();
-				Item a1 = loadItems.getItem(newValue);
-				VBox pane = itemDisplay.getItemDisplay(a1);
-				pane.setAlignment(Pos.CENTER);
-				ap.getChildren().add(pane);
-				
-			}else {
-				//nada
-			}
-		});
-		
+		itemSelected();	//this is when someone selects an item!
 	}
 	
 	public void electronicsSet(ActionEvent event) {
-		bathroomButton.setStyle("-fx-background-color: transparent; ");
-		buildingButton.setStyle("-fx-background-color: transparent; ");
-		electronicButton.setStyle("-fx-background-color: transparent; ");
-		furnitureButton.setStyle("-fx-background-color: transparent; ");
-		hardwareButton.setStyle("-fx-background-color: transparent; ");
-		kitchenButton.setStyle("-fx-background-color: transparent; ");
-		outdoorButton.setStyle("-fx-background-color: transparent; ");
-		
-		ap.getChildren().clear();
-		itemList.getItems().clear();
-		itemList.getSelectionModel().clearSelection();     //clears out the itemList and obList first.
-		obList.clear();
+		cleaningMethod();
 		electronicButton.setStyle("-fx-background-color: #9FB2C4; ");
 		ElectronicsDepartment electronicsDep = new ElectronicsDepartment();	
 		electronicsDep.LoadTheItems();
@@ -130,34 +84,11 @@ public class DepartmentControl {
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		
-		itemList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-			if (newValue != null) {
-				ap.getChildren().clear();
-				Item a1 = loadItems.getItem(newValue);
-				VBox pane = itemDisplay.getItemDisplay(a1);
-				pane.setAlignment(Pos.CENTER);
-				ap.getChildren().add(pane);
-				
-			}else {
-				//nada
-			}
-		});
+		itemSelected();	//this is when someone selects an item!
 	}
 	
 	public void furnitureSet(ActionEvent event) {
-		bathroomButton.setStyle("-fx-background-color: transparent; ");
-		buildingButton.setStyle("-fx-background-color: transparent; ");
-		electronicButton.setStyle("-fx-background-color: transparent; ");
-		furnitureButton.setStyle("-fx-background-color: transparent; ");
-		hardwareButton.setStyle("-fx-background-color: transparent; ");
-		kitchenButton.setStyle("-fx-background-color: transparent; ");
-		outdoorButton.setStyle("-fx-background-color: transparent; ");
-		
-		ap.getChildren().clear();
-		itemList.getItems().clear();
-		itemList.getSelectionModel().clearSelection();     //clears out the itemList and obList first.
-		obList.clear();
+		cleaningMethod();
 		furnitureButton.setStyle("-fx-background-color: #9FB2C4; ");
 		FurnitureDepartment furnitureDep = new FurnitureDepartment();	
 		furnitureDep.LoadTheItems();
@@ -166,34 +97,11 @@ public class DepartmentControl {
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		
-		itemList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-			if (newValue != null) {
-				ap.getChildren().clear();
-				Item a1 = loadItems.getItem(newValue);
-				VBox pane = itemDisplay.getItemDisplay(a1);
-				pane.setAlignment(Pos.CENTER);
-				ap.getChildren().add(pane);
-				
-			}else {
-				//nada
-			}
-		});
+		itemSelected();	//this is when someone selects an item!
 	}
 	
 	public void hardwareSet(ActionEvent event) {
-		bathroomButton.setStyle("-fx-background-color: transparent; ");
-		buildingButton.setStyle("-fx-background-color: transparent; ");
-		electronicButton.setStyle("-fx-background-color: transparent; ");
-		furnitureButton.setStyle("-fx-background-color: transparent; ");
-		hardwareButton.setStyle("-fx-background-color: transparent; ");
-		kitchenButton.setStyle("-fx-background-color: transparent; ");
-		outdoorButton.setStyle("-fx-background-color: transparent; ");
-		
-		ap.getChildren().clear();
-		itemList.getItems().clear();
-		itemList.getSelectionModel().clearSelection();     //clears out the itemList and obList first.
-		obList.clear();
+		cleaningMethod();
 		hardwareButton.setStyle("-fx-background-color: #9FB2C4; ");
 		HardwareDepartment hardwareDep = new HardwareDepartment();	
 		hardwareDep.LoadTheItems();
@@ -202,34 +110,11 @@ public class DepartmentControl {
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		
-		itemList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-			if (newValue != null) {
-				ap.getChildren().clear();
-				Item a1 = loadItems.getItem(newValue);
-				VBox pane = itemDisplay.getItemDisplay(a1);
-				pane.setAlignment(Pos.CENTER);
-				ap.getChildren().add(pane);
-				
-			}else {
-				//nada
-			}
-		});
+		itemSelected();	//this is when someone selects an item!
 	}
 	
 	public void kitchenSet(ActionEvent event) {
-		bathroomButton.setStyle("-fx-background-color: transparent; ");
-		buildingButton.setStyle("-fx-background-color: transparent; ");
-		electronicButton.setStyle("-fx-background-color: transparent; ");
-		furnitureButton.setStyle("-fx-background-color: transparent; ");
-		hardwareButton.setStyle("-fx-background-color: transparent; ");
-		kitchenButton.setStyle("-fx-background-color: transparent; ");
-		outdoorButton.setStyle("-fx-background-color: transparent; ");
-		
-		ap.getChildren().clear();
-		itemList.getItems().clear();
-		itemList.getSelectionModel().clearSelection();     //clears out the itemList and obList first.
-		obList.clear();
+		cleaningMethod();
 		kitchenButton.setStyle("-fx-background-color: #9FB2C4; ");
 		KitchenDepartment kitchenDep = new KitchenDepartment();	
 		kitchenDep.LoadTheItems();
@@ -238,34 +123,11 @@ public class DepartmentControl {
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		
-		itemList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-			if (newValue != null) {
-				ap.getChildren().clear();
-				Item a1 = loadItems.getItem(newValue);
-				VBox pane = itemDisplay.getItemDisplay(a1);
-				pane.setAlignment(Pos.CENTER);
-				ap.getChildren().add(pane);
-				
-			}else {
-				//nada
-			}
-		});
+		itemSelected();	//this is when someone selects an item!
 	}
 	
 	public void outdoorSet(ActionEvent event) {
-		bathroomButton.setStyle("-fx-background-color: transparent; ");
-		buildingButton.setStyle("-fx-background-color: transparent; ");
-		electronicButton.setStyle("-fx-background-color: transparent; ");
-		furnitureButton.setStyle("-fx-background-color: transparent; ");
-		hardwareButton.setStyle("-fx-background-color: transparent; ");
-		kitchenButton.setStyle("-fx-background-color: transparent; ");
-		outdoorButton.setStyle("-fx-background-color: transparent; ");
-		
-		ap.getChildren().clear();
-		itemList.getItems().clear();
-		itemList.getSelectionModel().clearSelection();     //clears out the itemList and obList first.
-		obList.clear();
+		cleaningMethod();
 		outdoorButton.setStyle("-fx-background-color: #9FB2C4; ");
 		OutdoorDepartment outdoorDep = new OutdoorDepartment();	
 		outdoorDep.LoadTheItems();
@@ -274,20 +136,48 @@ public class DepartmentControl {
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		
+		itemSelected();	//this is when someone selects an item!
+	}
+	
+	
+	
+	
+	private void itemSelected() {
+		//only used after the items HAVE been set. 
+		//if clicked then the ap will change to the itemDisplay!
 		itemList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
 			if (newValue != null) {
+				//newValue is just a String here. Its the name of the item;
 				ap.getChildren().clear();
-				Item a1 = loadItems.getItem(newValue);
-				VBox pane = itemDisplay.getItemDisplay(a1);
-				pane.setAlignment(Pos.CENTER);
+				chosenItem = loadItems.getItem(newValue);	//takes the newValue and find the item with that name;
+				Pane pane = itemDisplay.itemDisplayPane(chosenItem);
 				ap.getChildren().add(pane);
 				
 			}else {
 				//nada
 			}
 		});
-		}
+	}
+	
+	private void cleaningMethod() {
+		bathroomButton.setStyle("-fx-background-color: transparent; ");
+		buildingButton.setStyle("-fx-background-color: transparent; ");
+		electronicButton.setStyle("-fx-background-color: transparent; ");
+		furnitureButton.setStyle("-fx-background-color: transparent; ");
+		hardwareButton.setStyle("-fx-background-color: transparent; ");
+		kitchenButton.setStyle("-fx-background-color: transparent; ");
+		outdoorButton.setStyle("-fx-background-color: transparent; ");
+		//done clearing out the buttons;
+		
+		ap.getChildren().clear(); //clears whats in ap;
+		itemList.getItems().clear();		//clears out itemList;
+		itemList.getSelectionModel().clearSelection();     //clears out the itemList and obList first.		
+		obList.clear();	
+		//now the itemList and the pane is clean to work on.!
+	}
+	
+	
+	
 	
 	
 }

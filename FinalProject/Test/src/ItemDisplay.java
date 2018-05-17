@@ -1,4 +1,3 @@
-package application;
 
 
 import javafx.geometry.Insets;
@@ -31,18 +30,18 @@ public class ItemDisplay {
 	
 	public Pane itemDisplayPane(Item item) {
 		mainPane = new AnchorPane();
-		mainPane.setPrefHeight(420);
-		mainPane.setPrefWidth(530);
+		mainPane.setPrefHeight(380);
+		mainPane.setPrefWidth(500);
 		mainPane.setStyle("-fx-background-color: lightBlue; ");
 		
 		imgPane = new AnchorPane();
 		imgPane.setLayoutX(14);
 		imgPane.setLayoutY(46);
 		imgPane.setStyle("-fx-background-color: #4D4126; ");
-		imgPane.prefHeight(300);
-		imgPane.prefWidth(314);
+		imgPane.prefHeight(292);
+		imgPane.prefWidth(284);
 		
-		Image img = new Image("application/logInLogo.jpg");
+		Image img = new Image("logInLogo.jpg");
 		ImageView iv = new ImageView(img);
 		iv.setFitHeight(256);
 		iv.setFitWidth(250);
@@ -81,9 +80,9 @@ public class ItemDisplay {
 		add.setStyle("-fx-background-color: #119296; ");
 		vPane.getChildren().addAll(name, price, itemNumber, quantity, safety , stockLocation, otherInfo, add);
 		
-		ImageView iv2 = new ImageView(new Image("application/bottomLogo.png"));
+		ImageView iv2 = new ImageView(new Image("bottomLogo.png"));
 		iv2.setFitHeight(49);
-		iv2.setFitWidth(530);
+		iv2.setFitWidth(501);
 		
 		mainPane.getChildren().addAll(iv2,imgPane, vPane);
 		
