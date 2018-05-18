@@ -22,7 +22,7 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
-public class DepartmentControl implements Initializable{
+public class DepartmentControl implements Initializable {
 	@FXML
 	private Button loginButton = new Button();
 	@FXML
@@ -45,23 +45,20 @@ public class DepartmentControl implements Initializable{
 	private Pane ap = DisplayAP.getAp();
 	@FXML
 	private WebView web;
-	@FXML 
+	@FXML
 	private ObservableList<String> obList = FXCollections.observableArrayList();
-	@FXML 
+	@FXML
 	private ListView<String> itemList = new ListView<>(obList);
 	@FXML
 	private Button profileButton;
-	
-	
-	
+
 	private ItemDisplay itemDisplay = new ItemDisplay();
 	private LoadItems loadItems = new LoadItems();
 	public static Item chosenItem;
 	private CartModel cart = new CartModel();
-	private static User user;
+	private static User user = null;
 	private HomeDisplay hd = new HomeDisplay();
-	
-	
+
 	public void homeSet(ActionEvent event) {
 		cleaningMethod();
 		homeButton.setStyle("-fx-background-color: #9FB2C4; ");
@@ -72,135 +69,128 @@ public class DepartmentControl implements Initializable{
 		webVpane.getChildren().add(web);
 		ap.getChildren().add(webVpane);
 	}
-	
+
 	public void bathroomSet(ActionEvent event) {
 		cleaningMethod();
 		bathroomButton.setStyle("-fx-background-color: #9FB2C4; ");
-		BathroomDepartment bathroomDep = new BathroomDepartment();	
-		bathroomDep.loadBathroomItems();		//loads the bathroom Items;
-		for(int i = 0; i< bathroomDep.getItemList().size(); i++) {
+		BathroomDepartment bathroomDep = new BathroomDepartment();
+		bathroomDep.loadBathroomItems(); // loads the bathroom Items;
+		for (int i = 0; i < bathroomDep.getItemList().size(); i++) {
 			obList.add(bathroomDep.getItemList().get(i).getName());
 		}
-		//added the bathroom items to the list.
+		// added the bathroom items to the list.
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		//added the list to the pane!
-		
-		itemSelected();	//this is when someone selects an item!
+		// added the list to the pane!
+
+		itemSelected(); // this is when someone selects an item!
 	}
-	
+
 	public void buildingSet(ActionEvent event) {
 		cleaningMethod();
 		buildingButton.setStyle("-fx-background-color: #9FB2C4; ");
-		BuildingDepartment buildingDep = new BuildingDepartment();	
+		BuildingDepartment buildingDep = new BuildingDepartment();
 		buildingDep.LoadTheItems();
-		for(int i = 0; i< buildingDep.getItemList().size(); i++) {
+		for (int i = 0; i < buildingDep.getItemList().size(); i++) {
 			obList.add(buildingDep.getItemList().get(i).getName());
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		itemSelected();	//this is when someone selects an item!
+		itemSelected(); // this is when someone selects an item!
 	}
-	
+
 	public void electronicsSet(ActionEvent event) {
 		cleaningMethod();
 		electronicButton.setStyle("-fx-background-color: #9FB2C4; ");
-		ElectronicsDepartment electronicsDep = new ElectronicsDepartment();	
+		ElectronicsDepartment electronicsDep = new ElectronicsDepartment();
 		electronicsDep.LoadTheItems();
-		for(int i = 0; i< electronicsDep.getItemList().size(); i++) {
+		for (int i = 0; i < electronicsDep.getItemList().size(); i++) {
 			obList.add(electronicsDep.getItemList().get(i).getName());
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		itemSelected();	//this is when someone selects an item!
+		itemSelected(); // this is when someone selects an item!
 	}
-	
+
 	public void furnitureSet(ActionEvent event) {
 		cleaningMethod();
 		furnitureButton.setStyle("-fx-background-color: #9FB2C4; ");
-		FurnitureDepartment furnitureDep = new FurnitureDepartment();	
+		FurnitureDepartment furnitureDep = new FurnitureDepartment();
 		furnitureDep.LoadTheItems();
-		for(int i = 0; i< furnitureDep.getItemList().size(); i++) {
+		for (int i = 0; i < furnitureDep.getItemList().size(); i++) {
 			obList.add(furnitureDep.getItemList().get(i).getName());
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		itemSelected();	//this is when someone selects an item!
+		itemSelected(); // this is when someone selects an item!
 	}
-	
+
 	public void hardwareSet(ActionEvent event) {
 		cleaningMethod();
 		hardwareButton.setStyle("-fx-background-color: #9FB2C4; ");
-		HardwareDepartment hardwareDep = new HardwareDepartment();	
+		HardwareDepartment hardwareDep = new HardwareDepartment();
 		hardwareDep.LoadTheItems();
-		for(int i = 0; i< hardwareDep.getItemList().size(); i++) {
+		for (int i = 0; i < hardwareDep.getItemList().size(); i++) {
 			obList.add(hardwareDep.getItemList().get(i).getName());
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		itemSelected();	//this is when someone selects an item!
+		itemSelected(); // this is when someone selects an item!
 	}
-	
+
 	public void kitchenSet(ActionEvent event) {
 		cleaningMethod();
 		kitchenButton.setStyle("-fx-background-color: #9FB2C4; ");
-		KitchenDepartment kitchenDep = new KitchenDepartment();	
+		KitchenDepartment kitchenDep = new KitchenDepartment();
 		kitchenDep.LoadTheItems();
-		for(int i = 0; i< kitchenDep.getItemList().size(); i++) {
+		for (int i = 0; i < kitchenDep.getItemList().size(); i++) {
 			obList.add(kitchenDep.getItemList().get(i).getName());
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		itemSelected();	//this is when someone selects an item!
+		itemSelected(); // this is when someone selects an item!
 	}
-	
+
 	public void outdoorSet(ActionEvent event) {
 		cleaningMethod();
 		outdoorButton.setStyle("-fx-background-color: #9FB2C4; ");
-		OutdoorDepartment outdoorDep = new OutdoorDepartment();	
+		OutdoorDepartment outdoorDep = new OutdoorDepartment();
 		outdoorDep.LoadTheItems();
-		for(int i = 0; i< outdoorDep.getItemList().size(); i++) {
+		for (int i = 0; i < outdoorDep.getItemList().size(); i++) {
 			obList.add(outdoorDep.getItemList().get(i).getName());
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
-		itemSelected();	//this is when someone selects an item!
+		itemSelected(); // this is when someone selects an item!
 	}
-	
+
 	public void profileSet(ActionEvent event) {
-		
+		System.out.println("pro");
 	}
 	
-	public void createAccount() {
-	cleaningMethod();
-	Pane root;
-	try {
-		root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
-		ap.getChildren().add(root);
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}	
+	public void logIn(ActionEvent event) {
+		cleaningMethod();
+		LoginView liv = new LoginView();
+		ap.getChildren().add(liv.getLogInPane());
 	}
-	
-	
+
 	private void itemSelected() {
-		//only used after the items HAVE been set. 
-		//if clicked then the ap will change to the itemDisplay!
+		// only used after the items HAVE been set.
+		// if clicked then the ap will change to the itemDisplay!
 		itemList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
 			if (newValue != null) {
-				//newValue is just a String here. Its the name of the item;
+				// newValue is just a String here. Its the name of the item;
 				ap.getChildren().clear();
-				chosenItem = loadItems.getItem(newValue);	//takes the newValue and find the item with that name;
+				chosenItem = loadItems.getItem(newValue); // takes the newValue and find the item with that name;
 				Pane pane = itemDisplay.itemDisplayPane(chosenItem, cart);
 				ap.getChildren().add(pane);
-				
-			}else {
-				//nada
+
+			} else {
+				// nada
 			}
 		});
 	}
-	
+
 	private void cleaningMethod() {
 		homeButton.setStyle("-fx-background-color: transparent; ");
 		bathroomButton.setStyle("-fx-background-color: transparent; ");
@@ -210,24 +200,19 @@ public class DepartmentControl implements Initializable{
 		hardwareButton.setStyle("-fx-background-color: transparent; ");
 		kitchenButton.setStyle("-fx-background-color: transparent; ");
 		outdoorButton.setStyle("-fx-background-color: transparent; ");
-		//done clearing out the buttons;
-		
-		ap.getChildren().clear(); //clears whats in ap;
-		itemList.getItems().clear();		//clears out itemList;
-		itemList.getSelectionModel().clearSelection();     //clears out the itemList and obList first.		
-		obList.clear();	
-		//now the itemList and the pane is clean to work on.!
+		// done clearing out the buttons;
+
+		ap.getChildren().clear(); // clears whats in ap;
+		itemList.getItems().clear(); // clears out itemList;
+		itemList.getSelectionModel().clearSelection(); // clears out the itemList and obList first.
+		obList.clear();
+		// now the itemList and the pane is clean to work on.!
 	}
-	
-	public void logIn(ActionEvent event) {
-		cleaningMethod();
-		LoginView liv = new LoginView();
-		ap.getChildren().add(liv.getLogInPane());
-	}
-	
+
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 	public User getUser() {
 		return this.user;
 	}
@@ -237,6 +222,9 @@ public class DepartmentControl implements Initializable{
 		// TODO Auto-generated method stub
 		WebEngine engine = web.getEngine();
 		engine.load("https://www.habitat.org/");
+		if (user != null) {
+			profileButton = new Button(user.getFirstName()+" "+user.getLastName());
+		}
 	}
-	
+
 }

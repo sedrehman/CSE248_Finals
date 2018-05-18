@@ -54,32 +54,12 @@ public class LoginModel {
 			try {
 				rs.close();
 				preparedStatement.close();
+				connection.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-	}
-	
-	public User getUser(String emailAddress) {
-		String sql = "SELECT firstName, lastName, email, password, address, cart, orders FROM UserList WHERE email = ?";
-		User user = null;
-		try {
-			Statement stmt = connection.createStatement();
-			ResultSet rs = stmt.executeQuery(sql) ;
-
-			// loop through the result set
-			while (rs.next()) {
-				//this should work.
-				user = new User(rs.getString("firstName"), rs.getString("lastName"), rs.getString("email"), 
-						rs.getString("password"), rs.getString("address"), rs.getString("cartItems"), 
-						rs.getString("orders"));
-			}
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
-		return user;
 	}
 	
 	public User getUser() {

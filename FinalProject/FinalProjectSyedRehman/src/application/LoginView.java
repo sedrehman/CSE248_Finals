@@ -19,7 +19,7 @@ public class LoginView {
 	private Button createAccount;
 	private Button forgotPassword;
 	private LoginControl control;
-	DepartmentControl dc = new DepartmentControl();
+	CreateAccountController cac = new CreateAccountController();
 	
 	//-fx-background-color: lightBlue; 
 	public AnchorPane getLogInPane() {
@@ -72,10 +72,6 @@ public class LoginView {
 		createAccount.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
 		createAccount.setLayoutX(77);
 		createAccount.setLayoutY(195);
-		createAccount.setOnAction(e->{
-			
-			dc.createAccount();
-		});
 		
 		forgotPassword = new Button("Forgot password?");
 		forgotPassword.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
@@ -98,6 +94,11 @@ public class LoginView {
 		ap2.setLayoutY(6);
 		
 		rootPane.getChildren().addAll(ap1, ap2, itemPane);
+		createAccount.setOnAction(e->{
+			rootPane.getChildren().clear();
+			rootPane.getChildren().addAll(cac.createAccount());
+		});
+		
 		
 		return rootPane;
 	}

@@ -1,5 +1,6 @@
 package application;
 
+
 import java.util.ArrayList;
 
 public class User {
@@ -68,6 +69,5 @@ public class User {
 		return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password=" + password
 				+ ", address=" + address + ", cartItems=" + cartItems + ", orders=" + orders + "]";
 	}
-	
 	
 }

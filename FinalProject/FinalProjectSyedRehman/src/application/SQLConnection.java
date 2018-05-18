@@ -7,7 +7,6 @@ public class SQLConnection {
 		try {
 			Class.forName("org.sqlite.JDBC");
 			conn = DriverManager.getConnection("jdbc:sqlite:habitatForHumanity.sqlite");
-			System.out.println("coonected to DB");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			return null;
