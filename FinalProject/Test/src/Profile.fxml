@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="525.0" prefWidth="675.0" style="-fx-background-color: #84A314;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProfileViewController">
+   <children>
+      <AnchorPane layoutX="178.0" layoutY="121.0" prefHeight="297.0" prefWidth="430.0" style="-fx-background-color: #FFF8D6;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <VBox layoutX="327.0" layoutY="70.0" prefHeight="349.0" prefWidth="279.0" spacing="15.0">
+               <children>
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <BottomNavigationButton prefHeight="32.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-text-fill: green; -fx-border-color: green;" text="Create!" />
+                  <Label prefHeight="26.0" prefWidth="166.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="203.0" layoutY="67.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="331.0" prefWidth="113.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="33.0" prefWidth="258.0" text="First Name :" />
+                  <Label prefHeight="33.0" prefWidth="258.0" text="Last Name :" />
+                  <Label prefHeight="33.0" prefWidth="258.0" text="Street Address :" />
+                  <Label prefHeight="33.0" prefWidth="258.0" text="city/state/zip :" />
+                  <Label contentDisplay="RIGHT" prefHeight="33.0" prefWidth="258.0" text="email :" />
+                  <Label contentDisplay="RIGHT" prefHeight="33.0" prefWidth="258.0" text="password :" />
+               </children>
+            </VBox>
+            <ImageView fitHeight="362.0" fitWidth="205.0" layoutX="9.0" layoutY="47.0">
+               <image>
+                  <Image url="@../../FinalProjectSyedRehman/src/application/createAccountLogo.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

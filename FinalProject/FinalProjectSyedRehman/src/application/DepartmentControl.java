@@ -42,7 +42,7 @@ public class DepartmentControl implements Initializable {
 	@FXML
 	private Button outdoorButton = new Button(" Outdoors ");
 	@FXML
-	private Pane ap = DisplayAP.getAp();
+	private Pane ap;
 	@FXML
 	private WebView web;
 	@FXML
@@ -51,12 +51,14 @@ public class DepartmentControl implements Initializable {
 	private ListView<String> itemList = new ListView<>(obList);
 	@FXML
 	private Button profileButton;
-
+	@FXML
+	private Button cartButton;
+	
 	private ItemDisplay itemDisplay = new ItemDisplay();
 	private LoadItems loadItems = new LoadItems();
 	public static Item chosenItem;
 	private CartModel cart = new CartModel();
-	private static User user = null;
+	public static User user;
 	private HomeDisplay hd = new HomeDisplay();
 
 	public void homeSet(ActionEvent event) {
@@ -165,13 +167,21 @@ public class DepartmentControl implements Initializable {
 	}
 
 	public void profileSet(ActionEvent event) {
-		System.out.println("pro");
+		if(user!= null) {
+			System.out.println(" DC  "+user);
+			ProfileViewController pvc = new ProfileViewController();
+			cleaningMethod();
+			ap.getChildren().add(pvc.getPane());
+		}
 	}
-	
+
 	public void logIn(ActionEvent event) {
 		cleaningMethod();
 		LoginView liv = new LoginView();
 		ap.getChildren().add(liv.getLogInPane());
+	}
+	public void cartSet(ActionEvent event) {
+		
 	}
 
 	private void itemSelected() {
@@ -222,9 +232,6 @@ public class DepartmentControl implements Initializable {
 		// TODO Auto-generated method stub
 		WebEngine engine = web.getEngine();
 		engine.load("https://www.habitat.org/");
-		if (user != null) {
-			profileButton = new Button(user.getFirstName()+" "+user.getLastName());
-		}
 	}
 
 }

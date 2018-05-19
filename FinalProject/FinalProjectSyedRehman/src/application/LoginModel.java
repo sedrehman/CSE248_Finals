@@ -1,31 +1,18 @@
 package application;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class LoginModel {
-	private Connection connection;
+import javafx.fxml.Initializable;
+
+public class LoginModel implements Initializable{
+	private Connection connection= SQLConnection.connect();
 	private User user;
-	public LoginModel() {
-		connection = SqliteLogInConnection.connect();
-		if (connection == null) {
-			//if the connection is null then there is no point in continuing the application. 
-			// it will exit out of the application.
-			System.exit(1);
-		}
-	}
-	
-	public boolean isConnected() {
-		try {
-			return !connection.isClosed();	//so here it will come out true if the connection is open.
-		} catch (SQLException e) {
-			System.out.println("error connecting to the database!");
-			return false;
-		}
-	}
 	
 	public boolean isLogin(String userName, String password) {
 		PreparedStatement preparedStatement = null;
@@ -48,7 +35,7 @@ public class LoginModel {
 				return false;
 			}
 		}catch(Exception e){
-			System.out.println("problem in is login...");
+			System.out.println("problem is in login...");
 			return false;
 		}finally {
 			try {
@@ -64,6 +51,12 @@ public class LoginModel {
 	
 	public User getUser() {
 		return this.user;
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

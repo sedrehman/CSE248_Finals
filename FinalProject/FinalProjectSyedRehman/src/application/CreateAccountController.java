@@ -44,13 +44,15 @@ public class CreateAccountController implements Initializable {
 	}
 
 	public void buttonClicked(ActionEvent event) {
-		String address = add1.getText() + add2.getText();
-		user = new User(fName.getText(), lName.getText(), address, email.getText(), password.getText(), "", "");
-		cam.incert(fName.getText(), lName.getText(), address, email.getText(), password.getText(), "", "");
-		// mainPane.getChildren().clear();
-		// Label label = new Label("You've created an account. Now please go back to
-		// home page and click on account icon and sign in");
+		String address = add1.getText() +" & "+ add2.getText();
+		user = new User(fName.getText(), lName.getText(), email.getText(), password.getText(), address, "", "");
+		cam.incert(fName.getText(), lName.getText(), email.getText(),address, password.getText(), "", "");
+		
+		System.out.println(user);
 		dCon.setUser(user);
+		mainPane.getChildren().clear();
+		Label label = new Label("You've created an account");
+		mainPane.getChildren().add(label);
 	}
 
 	public Parent createAccount() {

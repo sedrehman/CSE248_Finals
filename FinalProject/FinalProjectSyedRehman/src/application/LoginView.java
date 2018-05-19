@@ -18,8 +18,10 @@ public class LoginView {
 	private Button loginButton;
 	private Button createAccount;
 	private Button forgotPassword;
-	private LoginControl control;
+	private LoginModel model= new LoginModel();
+	private User user;
 	CreateAccountController cac = new CreateAccountController();
+	DepartmentControl dc = new DepartmentControl();
 	
 	//-fx-background-color: lightBlue; 
 	public AnchorPane getLogInPane() {
@@ -65,13 +67,21 @@ public class LoginView {
 		loginButton.setLayoutY(122);
 		loginButton.setPrefSize(75, 30);
 		loginButton.setOnAction(e->{
-			control.login(tEmail.getText(), pf.getText());
+			boolean isLoggedIn = model.isLogin(tEmail.getText(), pf.getText());
+			if(isLoggedIn == true) {
+				user = model.getUser();
+				dc.setUser(user);
+			}
 		});
 		
 		createAccount = new Button("Create an Account!");
 		createAccount.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
 		createAccount.setLayoutX(77);
 		createAccount.setLayoutY(195);
+		createAccount.setOnAction(e->{
+			rootPane.getChildren().clear();
+			rootPane.getChildren().addAll(cac.createAccount());
+		});
 		
 		forgotPassword = new Button("Forgot password?");
 		forgotPassword.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
@@ -94,10 +104,7 @@ public class LoginView {
 		ap2.setLayoutY(6);
 		
 		rootPane.getChildren().addAll(ap1, ap2, itemPane);
-		createAccount.setOnAction(e->{
-			rootPane.getChildren().clear();
-			rootPane.getChildren().addAll(cac.createAccount());
-		});
+		
 		
 		
 		return rootPane;

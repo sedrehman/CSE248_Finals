@@ -13,7 +13,7 @@
          <children>
             <WebView fx:id="web" layoutX="3.0" layoutY="4.0" prefHeight="450.0" prefWidth="566.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
          </children></AnchorPane>
-      <AnchorPane prefHeight="52.0" prefWidth="758.0" style="-fx-background-color: #1F2A47;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="52.0" prefWidth="759.0" style="-fx-background-color: #1F2A47;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField layoutX="258.0" layoutY="10.0" prefHeight="29.0" prefWidth="211.0" promptText="  Search. . . . " style="-fx-background-color: #E0CDC9;" />
             <Button layoutX="474.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Search" />
@@ -26,7 +26,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" layoutX="688.0" layoutY="6.0" minWidth="43.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="54.0" style="-fx-background-color: transparent;" textFill="WHITE">
+            <Button fx:id="cartButton" contentDisplay="GRAPHIC_ONLY" layoutX="688.0" layoutY="6.0" minWidth="43.0" mnemonicParsing="false" onAction="#cartSet" prefHeight="41.0" prefWidth="54.0" style="-fx-background-color: transparent;" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="33.0" fitWidth="37.0">
                      <image>
@@ -35,7 +35,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="103.0" layoutY="16.0" minHeight="18.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="64.0" style="-fx-background-color: transparent;" />
+            <Button fx:id="profileButton" layoutX="98.0" layoutY="10.0" minHeight="18.0" mnemonicParsing="false" onAction="#profileSet" prefHeight="29.0" prefWidth="64.0" style="-fx-background-color: transparent;" text="Profile" textFill="WHITE" />
          </children></AnchorPane>
       <AnchorPane layoutX="11.0" layoutY="67.0" prefHeight="261.0" prefWidth="150.0" style="-fx-background-color: #3B484A;">
          <children>
