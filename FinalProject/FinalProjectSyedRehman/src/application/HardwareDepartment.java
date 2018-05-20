@@ -22,9 +22,9 @@ public class HardwareDepartment {
 			
 			while(rs.next()) {
 				String name = rs.getString("name");
-				String purpose = rs.getString("purpose");
+				//String purpose = rs.getString("purpose");
 				Item item = li.getItem(name);
-				item.setOtherInfo(purpose);
+				//item.setOtherInfo(purpose);
 				itemList.add(item);
 			}
 			conn.close();

@@ -22,11 +22,11 @@ public class ElectronicsDepartment {
 			
 			while(rs.next()) {
 				String name = rs.getString("name");
-				String modelNumber = rs.getString("modelNumber");
-				String category = rs.getString("category");
-				String other = "Model Number: " + modelNumber + "\n" + "Category: "+ category;
+				//String modelNumber = rs.getString("modelNumber");
+				//String category = rs.getString("category");
+				//String other = "Model Number: " + modelNumber + "\n" + "Category: "+ category;
 				Item item = li.getItem(name);
-				item.setOtherInfo(other);
+				//item.setOtherInfo(other);
 				itemList.add(item);
 			}
 			conn.close();

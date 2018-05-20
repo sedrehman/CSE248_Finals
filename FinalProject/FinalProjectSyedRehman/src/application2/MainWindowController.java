@@ -3,10 +3,13 @@ package application2;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
 
@@ -24,11 +27,13 @@ public class MainWindowController implements Initializable{
     private Button removeButton;
 
     @FXML
-    private Button updateButton;
-
-    @FXML
     private Button orderButton;
-
+    
+    @FXML
+	private ObservableList<String> obList = FXCollections.observableArrayList();
+	@FXML
+	private ListView<String> itemList = new ListView<>(obList);
+    
     @FXML
     void addItems(ActionEvent event) {
     		AddItemController aic = new AddItemController();
@@ -46,26 +51,17 @@ public class MainWindowController implements Initializable{
 
     }
 
-    @FXML
-    void updateItems(ActionEvent event) {
-
-    }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
 	}
-	cdcd
+	
 	private void cleaningMethod() {
-		homeButton.setStyle("-fx-background-color: transparent; ");
-		bathroomButton.setStyle("-fx-background-color: transparent; ");
-		buildingButton.setStyle("-fx-background-color: transparent; ");
-		electronicButton.setStyle("-fx-background-color: transparent; ");
-		furnitureButton.setStyle("-fx-background-color: transparent; ");
-		hardwareButton.setStyle("-fx-background-color: transparent; ");
-		kitchenButton.setStyle("-fx-background-color: transparent; ");
-		outdoorButton.setStyle("-fx-background-color: transparent; ");
+		addButton.setStyle("-fx-background-color: transparent; ");
+		removeButton.setStyle("-fx-background-color: transparent; ");
+		orderButton.setStyle("-fx-background-color: transparent; ");
 		// done clearing out the buttons;
 
 		ap.getChildren().clear(); // clears whats in ap;

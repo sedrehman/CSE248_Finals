@@ -21,16 +21,16 @@ public class FurnitureDepartment {
 			
 			while(rs.next()) {
 				String name = rs.getString("name");
-				String length = rs.getString("length");
-				String width =  rs.getString("width");
-				String height = rs.getString("height");
-				String weight = rs.getString("weight");
-				String materials = rs.getString("materials");
-				String other = "Length: " + length + "\nWidth: "+ width + "\nHeigth: " + height + "\nWeight: " + 
-						weight + "\nMaterials: " + materials;
+				//String length = rs.getString("length");
+//				String width =  rs.getString("width");
+//				String height = rs.getString("height");
+//				String weight = rs.getString("weight");
+//				String materials = rs.getString("materials");
+//				String other = "Length: " + length + "\nWidth: "+ width + "\nHeigth: " + height + "\nWeight: " + 
+//						weight + "\nMaterials: " + materials;
 						
 				Item item = li.getItem(name);
-				item.setOtherInfo(other);
+			//	item.setOtherInfo(other);
 				itemList.add(item);
 			}
 			conn.close();

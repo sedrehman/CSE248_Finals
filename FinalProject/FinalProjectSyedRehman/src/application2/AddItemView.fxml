@@ -5,12 +5,12 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="572.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="457.0" prefWidth="572.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application2.AddItemController">
    <children>
       <AnchorPane layoutX="126.0" layoutY="115.0" prefHeight="457.0" prefWidth="572.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
@@ -53,34 +53,43 @@
                   </Label>
                </children>
             </VBox>
-            <VBox alignment="CENTER" layoutX="180.0" layoutY="47.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="309.0" prefWidth="237.0" spacing="5.0">
+            <VBox alignment="CENTER" layoutX="180.0" layoutY="47.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="309.0" prefWidth="237.0" spacing="5.0">
                <children>
-                  <TextField />
-                  <TextField />
-                  <TextField />
-                  <TextField />
-                  <TextArea prefHeight="72.0" prefWidth="237.0" />
-                  <TextField />
-                  <TextField />
+                  <TextField fx:id="name" />
+                  <TextField fx:id="price" />
+                  <TextField fx:id="stackLocation" />
+                  <TextField fx:id="quantity" />
+                  <TextArea fx:id="otherInfo" prefHeight="72.0" prefWidth="237.0" />
+                  <TextField fx:id="brand" />
+                  <TextField fx:id="safety" />
                </children>
             </VBox>
-            <Label layoutX="117.0" layoutY="18.0" prefHeight="39.0" prefWidth="146.0" text="ADD ITEM!">
+            <Label layoutX="34.0" layoutY="18.0" prefHeight="39.0" prefWidth="116.0" text="ADD ITEM!">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Button layoutX="453.0" layoutY="131.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="84.0" text="ADD" />
-            <Button layoutX="453.0" layoutY="195.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="84.0" text="CLEAR" />
-            <HBox layoutX="14.0" layoutY="360.0" prefHeight="48.0" prefWidth="535.0" spacing="10.0">
+            <Button fx:id="addButton" layoutX="453.0" layoutY="131.0" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="39.0" prefWidth="84.0" text="ADD" />
+            <Button fx:id="clearButton" layoutX="453.0" layoutY="195.0" mnemonicParsing="false" onAction="#clearButtonClicked" prefHeight="39.0" prefWidth="84.0" text="CLEAR" />
+            <Label fx:id="result" layoutX="149.0" layoutY="24.0" prefHeight="27.0" prefWidth="409.0" textFill="#a10000">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="12.0" layoutY="356.0" prefHeight="84.0" prefWidth="537.0">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Bathroom" />
-                  <RadioButton mnemonicParsing="false" text="Building" />
-                  <RadioButton mnemonicParsing="false" text="Hardware" />
-                  <RadioButton mnemonicParsing="false" text="Kitchen" />
-                  <RadioButton mnemonicParsing="false" text="Electronics" />
-                  <RadioButton mnemonicParsing="false" text="Outdoors" />
+                  <RadioButton fx:id="bathroom" layoutX="3.0" layoutY="6.0" mnemonicParsing="false" text="Bathroom">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Department" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="building" layoutX="241.0" layoutY="42.0" mnemonicParsing="false" text="Building" toggleGroup="$Department" />
+                  <RadioButton fx:id="hardware" layoutX="449.0" layoutY="8.0" mnemonicParsing="false" text="Hardware" toggleGroup="$Department" />
+                  <RadioButton fx:id="furniture" layoutX="362.0" layoutY="8.0" mnemonicParsing="false" text="Furniture" toggleGroup="$Department" />
+                  <RadioButton fx:id="electronics" layoutX="260.0" layoutY="7.0" mnemonicParsing="false" text="Electronics" toggleGroup="$Department" />
+                  <RadioButton fx:id="outdoors" layoutX="173.0" layoutY="7.0" mnemonicParsing="false" text="Outdoors" toggleGroup="$Department" />
+                  <RadioButton fx:id="kitchen" layoutX="92.0" layoutY="6.0" mnemonicParsing="false" text="Kitchen" toggleGroup="$Department" />
                </children>
-            </HBox>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

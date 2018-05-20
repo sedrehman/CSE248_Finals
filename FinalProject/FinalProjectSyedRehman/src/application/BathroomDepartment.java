@@ -21,11 +21,11 @@ public class BathroomDepartment{
 			
 			while(rs.next()) {
 				String name = rs.getString("name");
-				String purpose = rs.getString("purpose");
-				String material = rs.getString("materials");
-				String other = "Purpose: " + purpose +"\n" +"Materials: " + material;
+//				String purpose = rs.getString("purpose");
+//				String material = rs.getString("materials");
+//				String other = "Purpose: " + purpose +"\n" +"Materials: " + material;
 				Item item = li.getItem(name);
-				item.setOtherInfo(other);
+				//item.setOtherInfo(other);
 				itemList.add(item);
 			}
 			conn.close();

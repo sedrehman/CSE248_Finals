@@ -22,11 +22,11 @@ public class BuildingDepartment {
 			while(rs.next()) {
 				String name = rs.getString("name");
 				Item item = li.getItem(name);
-				String contains = rs.getString("contains");
-				String purpose = rs.getString("purpose");
-				String warning = rs.getString("warning");
-				String other = "Contains: " + contains+ "\n" + "Purpose: " + purpose + "\n" + "Warning: "+ warning;
-				item.setOtherInfo(other);
+//				String contains = rs.getString("contains");
+//				String purpose = rs.getString("purpose");
+//				String warning = rs.getString("warning");
+//				String other = "Contains: " + contains+ "\n" + "Purpose: " + purpose + "\n" + "Warning: "+ warning;
+			//	item.setOtherInfo(other);
 				itemList.add(item);
 			}
 			conn.close();
