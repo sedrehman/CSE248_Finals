@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="457.0" prefWidth="572.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="126.0" layoutY="115.0" prefHeight="457.0" prefWidth="572.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <VBox alignment="CENTER" layoutX="64.0" layoutY="61.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="281.0" prefWidth="109.0" spacing="13.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="109.0" text="Name">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="109.0" text="Price">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="109.0" text="Stock Location">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="109.0" text="Quantity">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="62.0" prefWidth="109.0" text="Other Info">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="109.0" text="Brand">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="109.0" text="Safety">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="180.0" layoutY="47.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="309.0" prefWidth="237.0" spacing="5.0">
+               <children>
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextArea prefHeight="72.0" prefWidth="237.0" />
+                  <TextField />
+                  <TextField />
+               </children>
+            </VBox>
+            <Label layoutX="117.0" layoutY="18.0" prefHeight="39.0" prefWidth="146.0" text="ADD ITEM!">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Button layoutX="453.0" layoutY="131.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="84.0" text="ADD" />
+            <Button layoutX="453.0" layoutY="195.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="84.0" text="CLEAR" />
+            <HBox layoutX="14.0" layoutY="360.0" prefHeight="48.0" prefWidth="535.0" spacing="10.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Bathroom" />
+                  <RadioButton mnemonicParsing="false" text="Building" />
+                  <RadioButton mnemonicParsing="false" text="Hardware" />
+                  <RadioButton mnemonicParsing="false" text="Kitchen" />
+                  <RadioButton mnemonicParsing="false" text="Electronics" />
+                  <RadioButton mnemonicParsing="false" text="Outdoors" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

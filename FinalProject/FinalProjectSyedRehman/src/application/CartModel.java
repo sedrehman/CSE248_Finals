@@ -6,39 +6,43 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class CartModel {
-	private ArrayList<Item> itemList = new ArrayList<>();
-	
-	
-	public void addtoCart(Item item) {
-		if(item.getQuantity()>= 0){
-			itemList.add(item);
-		}else {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Opps!!");
-			alert.setHeaderText(null);
-			alert.setContentText("Out of inventory! SORRY !");
+	// private ListView<>
+	private static ArrayList<CartItem> cartItemList = new ArrayList<>();
+	private static ArrayList<Item> itemsForOrder = new ArrayList<>();
+	private static double totalPrice = 0;
 
-			alert.showAndWait();
-		}
+	public void addtoCart(Item item) {
+		cartItemList.add(new CartItem(item.getName(), 1, item.getPrice()));
+		totalPrice += item.getPrice();
+		itemsForOrder.add(item);
 	}
+
 	public void removeItem(Item item) {
-		for(int i = 0; i< itemList.size() ; i++) {
-			if(itemList.get(i).getName().equals(item.getName())) {
-				itemList.remove(i);
+		for (int i = 0; i < cartItemList.size(); i++) {
+			if (cartItemList.get(i).getName().equals(item.getName())) {
+				cartItemList.remove(i);
 			}
 		}
 	}
-	// just add items to itemList as you hit add on the itemList.. 
-	public ArrayList<Item> getItemList() {
-		return itemList;
+
+
+	public ArrayList<CartItem> getCartItemList() {
+		return cartItemList;
 	}
-	public void setItemList(ArrayList<Item> itemList) {
-		this.itemList = itemList;
+
+	public void setCartItemList(ArrayList<CartItem> cartItemList) {
+		this.cartItemList = cartItemList;
 	}
-	@Override
-	public String toString() {
-		return "CartModel [Items=" + itemList + "]";
+
+	public double getTotalPrice() {
+		return totalPrice;
 	}
+
+	public void setTotalPrice(double totalPrice) {
+		CartModel.totalPrice = totalPrice;
+	}
+
+	
 	
 	
 }

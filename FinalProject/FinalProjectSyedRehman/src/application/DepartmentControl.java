@@ -57,9 +57,9 @@ public class DepartmentControl implements Initializable {
 	private ItemDisplay itemDisplay = new ItemDisplay();
 	private LoadItems loadItems = new LoadItems();
 	public static Item chosenItem;
-	private CartModel cart = new CartModel();
+	private static CartModel cart = new CartModel();
 	public static User user;
-	private HomeDisplay hd = new HomeDisplay();
+	
 
 	public void homeSet(ActionEvent event) {
 		cleaningMethod();
@@ -181,7 +181,9 @@ public class DepartmentControl implements Initializable {
 		ap.getChildren().add(liv.getLogInPane());
 	}
 	public void cartSet(ActionEvent event) {
-		
+		cleaningMethod();
+		CartControl cc = new CartControl();
+		ap.getChildren().add(cc.getPane());
 	}
 
 	private void itemSelected() {
