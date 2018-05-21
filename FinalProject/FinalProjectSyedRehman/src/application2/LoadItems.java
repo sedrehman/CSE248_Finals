@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +14,7 @@ import application.SQLConnection;
 public class LoadItems {
 	
 	private Map <String, Item> itemList = new HashMap<String, Item>();
+	private ArrayList<String> itemNames = new ArrayList<>();
 	Connection conn = SQLConnection.connect();
 	
 	public void loadTheItems() {
@@ -27,6 +29,7 @@ public class LoadItems {
 				Item temp = new Item(rs.getString("name"), rs.getDouble("price"), rs.getInt("itemNumber"), rs.getString("stockLocation"), rs.getInt("quantity"), rs.getString("otherInfo")
 						, rs.getString("brand"), rs.getString("safety"));
 				itemList.put(temp.getName(), temp);
+				itemNames.add(temp.getName());
 			}
 			conn.close();	// closing the connection to be ready for the next use just in case;
 			
@@ -59,6 +62,14 @@ public class LoadItems {
 
 	public void setItemList(Map<String, Item> itemList) {
 		this.itemList = itemList;
+	}
+
+	public ArrayList<String> getItemNames() {
+		return itemNames;
+	}
+
+	public void setItemNames(ArrayList<String> itemNames) {
+		this.itemNames = itemNames;
 	}
 	
 	

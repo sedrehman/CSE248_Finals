@@ -9,18 +9,18 @@
    <children>
       <AnchorPane fx:id="ap" layoutX="177.0" layoutY="65.0" prefHeight="457.0" prefWidth="572.0" styleClass="bodybg">
          <children>
-            <ListView layoutX="18.0" layoutY="20.0" prefHeight="429.0" prefWidth="545.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <ListView fixedCellSize="0.0" layoutX="18.0" layoutY="20.0" prefHeight="429.0" prefWidth="545.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
          </children></AnchorPane>
       <AnchorPane prefHeight="52.0" prefWidth="759.0" style="-fx-background-color: #1F2A47;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField layoutX="258.0" layoutY="10.0" prefHeight="29.0" prefWidth="211.0" promptText="  Search an item. . . . " style="-fx-background-color: #E0CDC9;" />
             <Button layoutX="474.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Search" />
          </children></AnchorPane>
-      <AnchorPane layoutX="11.0" layoutY="67.0" prefHeight="87.0" prefWidth="154.0" style="-fx-background-color: #3B484A;">
+      <AnchorPane layoutX="11.0" layoutY="67.0" prefHeight="89.0" prefWidth="154.0" style="-fx-background-color: #3B484A;">
          <children>
             <Button fx:id="addButton" layoutY="-2.0" mnemonicParsing="false" onAction="#addItems" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Add Items" textFill="WHITE" />
-            <Button fx:id="removeButton" layoutY="30.0" mnemonicParsing="false" onAction="#removeItems" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Remove Items" textFill="WHITE" />
-            <Button fx:id="orderButton" layoutY="62.0" mnemonicParsing="false" onAction="#getOrders" prefHeight="0.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="View Orders" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Button fx:id="orderButton" layoutY="31.0" mnemonicParsing="false" onAction="#getOrders" prefHeight="0.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="View Orders" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Button fx:id="orderButton1" layoutY="56.0" mnemonicParsing="false" onAction="#getOrders" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Home" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
          </children>
       </AnchorPane>
    </children>
