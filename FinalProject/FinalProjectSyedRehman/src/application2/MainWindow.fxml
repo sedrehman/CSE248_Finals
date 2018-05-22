@@ -13,8 +13,8 @@
          </children></AnchorPane>
       <AnchorPane prefHeight="52.0" prefWidth="759.0" style="-fx-background-color: #1F2A47;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField layoutX="258.0" layoutY="10.0" prefHeight="29.0" prefWidth="211.0" promptText="  Search an item. . . . " style="-fx-background-color: #E0CDC9;" />
-            <Button layoutX="474.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="61.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Search" />
+            <TextField fx:id="searchField" layoutX="258.0" layoutY="10.0" prefHeight="29.0" prefWidth="211.0" promptText="  Search an item. . . . " style="-fx-background-color: #E0CDC9;" />
+            <Button fx:id="searchButton" layoutX="474.0" layoutY="11.0" minWidth="53.0" mnemonicParsing="false" onAction="#search" prefHeight="29.0" prefWidth="61.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Search" />
          </children></AnchorPane>
       <AnchorPane layoutX="11.0" layoutY="67.0" prefHeight="89.0" prefWidth="154.0" style="-fx-background-color: #3B484A;">
          <children>

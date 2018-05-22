@@ -8,7 +8,7 @@ public class Order {
 	
 	private int orderNum;
 	private String items;
-	private final String timeStamp = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss").format(
+	private String timeStamp = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss").format(
 			Calendar.getInstance().getTime());
 	private String fullName;
 	private String userAddress;
@@ -23,6 +23,19 @@ public class Order {
 		this.creditCardNumber = creditCardNumber;
 		this.total = total;
 	}
+	
+	public Order(int orderNum, String items, String time, String fullName, String userAddress, double creditCardNumber,
+			double total) {
+		super();
+		this.orderNum = orderNum;
+		this.items = items;
+		this.fullName = fullName;
+		this.userAddress = userAddress;
+		this.creditCardNumber = creditCardNumber;
+		this.total = total;
+		this.timeStamp = time;
+	}
+
 	public int getOrderNum() {
 		return orderNum;
 	}

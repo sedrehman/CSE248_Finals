@@ -1,9 +1,13 @@
 package application2;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import application.Item;
+import application.Order;
+import application.SearchControl;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,8 +15,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.web.WebView;
 
 public class MainWindowController implements Initializable{
@@ -32,12 +36,19 @@ public class MainWindowController implements Initializable{
     private Button orderButton;
     
     @FXML
-	private ObservableList<String> obList = FXCollections.observableArrayList();
+	private Button searchButton;
 	@FXML
-	private ListView<String> itemList = new ListView<>(obList);
+	private TextField searchField;
+	
     
+	private ObservableList<String> obList = FXCollections.observableArrayList();
+	private ListView<String> itemList = new ListView<>(obList);
+	
+	private SearchControl sc = new SearchControl();
+    public static Order chosenOrder;
 	public static Item chosenItem;
 	private LoadItems loadItems = new LoadItems();
+	private LoadOrders loadOrder = new LoadOrders();
 	
     @FXML
     void addItems(ActionEvent event) {
@@ -49,8 +60,45 @@ public class MainWindowController implements Initializable{
 
     @FXML
     void getOrders(ActionEvent event) {
+    	Platform.runLater(new Runnable() {
+		    @Override public void run() {
+		    	cleaningMethod();
+	    		orderButton.setStyle("-fx-background-color: #9FB2C4; ");
+	    		loadOrder.loadTheOrders();
+	    		for(int i = 0; i< loadOrder.getOrderList().size(); i++) {
+	    			obList.add(Integer.toString(loadOrder.getOrderList().get(i).getOrderNum()));
+	    			System.out.println(loadOrder.getOrderList().get(i));
+	    		}
+	    		ap.getChildren().add(itemList);
+	    		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
+	    		itemList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+	    			if (newValue != null) {
+	    				
+	    				chosenOrder = loadOrder.getOrder(Integer.parseInt(newValue)); 
+	    				cleaningMethod(); 
+	    				OrderController oc = new OrderController();
+	    				ap.getChildren().add(oc.getPane());
+	    				
+	    			} else {
+	    				// nada
+	    			}
+	    		});
+		}});
     		
     }
+    
+    public void search(ActionEvent event) {
+		if(searchField.getText() != null || !(searchField.getText().isEmpty())) {
+			cleaningMethod();
+			ArrayList<String> temp = sc.getItems(searchField.getText());
+			for (int i = 0; i < temp.size(); i++) {
+				obList.add(temp.get(i));
+			}
+			ap.getChildren().add(itemList);
+			itemList.setPrefSize(ap.getWidth(), ap.getHeight());
+			itemSelected(); 
+		}
+	}
     
     public void homeButtonClicked(ActionEvent event) {
     		cleaningMethod();
@@ -81,6 +129,7 @@ public class MainWindowController implements Initializable{
 		itemList.getItems().clear(); // clears out itemList;
 		itemList.getSelectionModel().clearSelection(); // clears out the itemList and obList first.
 		obList.clear();
+		
 		// now the itemList and the pane is clean to work on.!
 	}
 	private void itemSelected() {
