@@ -19,7 +19,7 @@ public class DisplayItemController implements Initializable{
 
    
     
-    public static Item item = MainWindowController.chosenItem;
+    public static Item item;
     
 
     @FXML
@@ -89,10 +89,10 @@ public class DisplayItemController implements Initializable{
 		}
     }
     
-    public Parent getPane() {
+    public static Parent getPane() {
 		Parent root = null;
 		try {
-			root = FXMLLoader.load(getClass().getResource("ItemDisplay.fxml"));
+			root = FXMLLoader.load(DisplayItemController.class.getResource("ItemDisplay.fxml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -102,7 +102,6 @@ public class DisplayItemController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
 		if(item != null) {
 			name.setText(item.getName());
 			price.setText(Double.toString(item.getPrice()));

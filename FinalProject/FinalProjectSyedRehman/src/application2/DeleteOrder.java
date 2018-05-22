@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DeleteOrder {
 	Connection conn;
 	public void delete(int orderNumber) {
-		String query = "DELETE FROM OrderList WHERE itemNumber = ?";
+		String query = "DELETE FROM OrderList WHERE orderNumber = ?";
 		try {
 			Connection conn = SQLConnection.connect();
 			PreparedStatement pstmt = conn.prepareStatement(query);

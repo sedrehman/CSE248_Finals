@@ -27,30 +27,26 @@ public class DeleteItems {
 		if(isBathroomItem(name)) {
 			deleteBathroomItem(name);
 			return true;
-		}
-		if(isBuildingItem(name)) {
+		} else if(isBuildingItem(name)) {
 			deleteBuildingItem(name);
 			return true;
-		}
-		if(isElectronicsItem(name)) {
+		} else if(isElectronicsItem(name)) {
 			deleteElectronicsItem(name);
 			return true;
-		}
-		if(isHardwareItem(name)) {
+		} else if(isHardwareItem(name)) {
 			deleteHardwareItem(name);
 			return true;
-		}
-		if(isFurnitureItem(name)) {
+		} else if(isFurnitureItem(name)) {
 			deleteFurnitureItem(name);
 			return true;
-		}
-		if(isKitchenItem(name)) {
+		} else if(isKitchenItem(name)) {
 			deleteKitchenItem(name);
 			return true;
-		}
-		if(isOutdoorItem(name)) {
+		} else if(isOutdoorItem(name)) {
 			deleteOutdoorItem(name);
 			return true;
+		} else {
+			System.out.println("Invalid name: " + name);
 		}
 		return false;
 		

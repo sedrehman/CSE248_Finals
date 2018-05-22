@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane minHeight="457.0" prefWidth="572.0" style="-fx-background-color: #9BBFDE;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application2.OrderController">
+<AnchorPane fx:id="mainPane" minHeight="457.0" prefWidth="572.0" style="-fx-background-color: #9BBFDE;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application2.OrderController">
    <children>
       <AnchorPane layoutX="219.0" layoutY="154.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FBFFC9;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
@@ -22,17 +22,17 @@
             </VBox>
             <VBox layoutX="188.0" layoutY="94.0" prefHeight="200.0" prefWidth="357.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="361.0" />
-                  <Label prefHeight="27.0" prefWidth="362.0" />
-                  <Label prefHeight="30.0" prefWidth="366.0" />
-                  <Label prefHeight="31.0" prefWidth="359.0" />
-                  <Label prefHeight="26.0" prefWidth="376.0" />
-                  <Label prefHeight="29.0" prefWidth="370.0" />
-                  <Label prefHeight="26.0" prefWidth="395.0" />
+                  <Label fx:id="orderNum" prefHeight="30.0" prefWidth="361.0" />
+                  <Label fx:id="items" prefHeight="27.0" prefWidth="362.0" />
+                  <Label fx:id="time" prefHeight="30.0" prefWidth="366.0" />
+                  <Label fx:id="name" prefHeight="31.0" prefWidth="359.0" />
+                  <Label fx:id="address" prefHeight="26.0" prefWidth="376.0" />
+                  <Label fx:id="card" prefHeight="29.0" prefWidth="370.0" />
+                  <Label fx:id="total" prefHeight="26.0" prefWidth="395.0" />
                </children>
             </VBox>
-            <Button layoutX="145.0" layoutY="338.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="129.0" style="-fx-background-color: #B9D100;" text="Ship" />
-            <Button layoutX="302.0" layoutY="338.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="129.0" style="-fx-background-color: #FF5E5E;" text="Delete" />
+            <Button fx:id="ship" layoutX="145.0" layoutY="338.0" mnemonicParsing="false" onAction="#shipClicked" prefHeight="48.0" prefWidth="129.0" style="-fx-background-color: #B9D100;" text="Ship" />
+            <Button fx:id="delete" layoutX="302.0" layoutY="338.0" mnemonicParsing="false" onAction="#deleteClicked" prefHeight="48.0" prefWidth="129.0" style="-fx-background-color: #FF5E5E;" text="Delete" />
          </children>
       </AnchorPane>
    </children>

@@ -1,5 +1,6 @@
 package application2;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -12,7 +13,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -60,8 +63,8 @@ public class MainWindowController implements Initializable{
 
     @FXML
     void getOrders(ActionEvent event) {
-    	Platform.runLater(new Runnable() {
-		    @Override public void run() {
+    //	Platform.runLater(new Runnable() {
+	//	    @Override public void run() {
 		    	cleaningMethod();
 	    		orderButton.setStyle("-fx-background-color: #9FB2C4; ");
 	    		loadOrder.loadTheOrders();
@@ -83,7 +86,7 @@ public class MainWindowController implements Initializable{
 	    				// nada
 	    			}
 	    		});
-		}});
+	//	}});
     		
     }
     
@@ -104,8 +107,8 @@ public class MainWindowController implements Initializable{
     		cleaningMethod();
 		home.setStyle("-fx-background-color: #9FB2C4; ");
 		loadItems.loadTheItems();
-		for (int i = 0; i < loadItems.getItemNames().size(); i++) {
-			obList.add(loadItems.getItemNames().get(i));
+		for (String itemName : loadItems.getItemNames()) {
+			obList.add(itemName);
 		}
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
@@ -116,7 +119,7 @@ public class MainWindowController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 	}
 	
 	private void cleaningMethod() {
@@ -142,8 +145,9 @@ public class MainWindowController implements Initializable{
 				cleaningMethod(); // just clearning out the selectrions and buttons.. 
 				//System.out.println(newValue);
 				//System.out.println(chosenItem.toString());
-				DisplayItemController dic = new DisplayItemController();
-				ap.getChildren().add(dic.getPane());
+				DisplayItemController.item = chosenItem;
+				ap.getChildren().add(DisplayItemController.getPane());
+				//DisplayItemController dic = new DisplayItemController();
 
 			} else {
 				// nada
