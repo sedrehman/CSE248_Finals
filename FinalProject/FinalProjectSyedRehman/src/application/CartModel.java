@@ -10,7 +10,7 @@ public class CartModel {
 	private static ArrayList<CartItem> cartItemList = new ArrayList<>();
 	private static ArrayList<Item> itemsForOrder = new ArrayList<>();
 	private static double totalPrice = 0;
-
+	
 	public void addtoCart(Item item) {
 		cartItemList.add(new CartItem(item.getName(), 1, item.getPrice()));
 		totalPrice += item.getPrice();

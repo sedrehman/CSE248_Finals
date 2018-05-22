@@ -11,8 +11,6 @@ import java.util.Map;
 import application.Item;
 
 public class SaveItem {
-	
-	private Map <String, Item> itemList = new HashMap<String, Item>();
 	private Connection conn = SQLConnection.connect();
 	
 	public void saveTheItems(String name, double price, String StockLocation, int quantity, 

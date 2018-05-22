@@ -15,13 +15,21 @@ public class LoadItems {
 	
 	private Map <String, Item> itemList = new HashMap<String, Item>();
 	private ArrayList<String> itemNames = new ArrayList<>();
-	Connection conn = SQLConnection.connect();
+	Connection conn;
 	
 	public void loadTheItems() {
+		if(itemNames.size()> 0) {
+			itemNames.clear();
+		}
+		if(itemList.size()> 0) {
+			itemList.clear();
+		}
+		
 		String sql = "SELECT * FROM ItemList";
+		
 		try {
 			//wont do this before creating an object of this class... so it will create a connection first..
-			
+			conn = SQLConnection.connect();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			
@@ -31,6 +39,7 @@ public class LoadItems {
 				itemList.put(temp.getName(), temp);
 				itemNames.add(temp.getName());
 			}
+			stmt.close();
 			conn.close();	// closing the connection to be ready for the next use just in case;
 			
 		} catch (SQLException e) {

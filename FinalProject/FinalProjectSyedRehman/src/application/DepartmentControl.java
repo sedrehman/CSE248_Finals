@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -42,7 +43,7 @@ public class DepartmentControl implements Initializable {
 	@FXML
 	private Button outdoorButton = new Button(" Outdoors ");
 	@FXML
-	private Pane ap;
+	public Pane ap;
 	@FXML
 	private WebView web;
 	@FXML
@@ -52,15 +53,21 @@ public class DepartmentControl implements Initializable {
 	@FXML
 	private Button profileButton;
 	@FXML
-	private Button cartButton;
+	public Button cartButton = new Button();
+	@FXML
+	private Button searchButton;
+	@FXML
+	private TextField searchField;
 	
 	private ItemDisplay itemDisplay = new ItemDisplay();
 	private LoadItems loadItems = new LoadItems();
 	public static Item chosenItem;
 	private static CartModel cart = new CartModel();
 	public static User user;
+	public static String userCart = "";
+	private boolean allreadyInCart = false;
+	private SearchControl sc = new SearchControl();
 	
-
 	public void homeSet(ActionEvent event) {
 		cleaningMethod();
 		homeButton.setStyle("-fx-background-color: #9FB2C4; ");
@@ -183,7 +190,21 @@ public class DepartmentControl implements Initializable {
 	public void cartSet(ActionEvent event) {
 		cleaningMethod();
 		CartControl cc = new CartControl();
+		addUserCart();
 		ap.getChildren().add(cc.getPane());
+	}
+	
+	public void search(ActionEvent event) {
+		if(searchField.getText() != null || !(searchField.getText().isEmpty())) {
+			cleaningMethod();
+			ArrayList<String> temp = sc.getItems(searchField.getText());
+			for (int i = 0; i < temp.size(); i++) {
+				obList.add(temp.get(i));
+			}
+			ap.getChildren().add(itemList);
+			itemList.setPrefSize(ap.getWidth(), ap.getHeight());
+			itemSelected(); 
+		}
 	}
 
 	private void itemSelected() {
@@ -220,6 +241,7 @@ public class DepartmentControl implements Initializable {
 		obList.clear();
 		// now the itemList and the pane is clean to work on.!
 	}
+	
 
 	public void setUser(User user) {
 		this.user = user;
@@ -235,5 +257,17 @@ public class DepartmentControl implements Initializable {
 		WebEngine engine = web.getEngine();
 		engine.load("https://www.habitat.org/");
 	}
-
+	
+	public void addUserCart() {
+		if(userCart != null && !userCart.equals("")) {
+			if(allreadyInCart == false) {
+				String[] temp = userCart.split(",");
+				for(int i = 0 ; i<temp.length; i++) {
+					Item temp1 = loadItems.getItem(temp[i]);
+					cart.addtoCart(temp1);
+				}
+			}
+		}
+	}
+	
 }

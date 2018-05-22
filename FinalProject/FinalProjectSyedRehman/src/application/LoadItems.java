@@ -4,19 +4,28 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class LoadItems {
 	
 	private Map <String, Item> itemList = new HashMap<String, Item>();
-	Connection conn = SQLConnection.connect();
+	private ArrayList<String> itemNames = new ArrayList<>();
+	Connection conn;
 	
 	public void loadTheItems() {
+		if(itemNames.size()> 0) {
+			itemNames.clear();
+		}
+		if(itemList.size()> 0) {
+			itemList.clear();
+		}
 		String sql = "SELECT * FROM ItemList";
+		
 		try {
 			//wont do this before creating an object of this class... so it will create a connection first..
-			
+			conn = SQLConnection.connect();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			
@@ -24,7 +33,9 @@ public class LoadItems {
 				Item temp = new Item(rs.getString("name"), rs.getDouble("price"), rs.getInt("itemNumber"), rs.getString("stockLocation"), rs.getInt("quantity"), rs.getString("otherInfo")
 						, rs.getString("brand"), rs.getString("safety"));
 				itemList.put(temp.getName(), temp);
+				itemNames.add(temp.getName());
 			}
+			stmt.close();
 			conn.close();	// closing the connection to be ready for the next use just in case;
 			
 		} catch (SQLException e) {
@@ -57,6 +68,15 @@ public class LoadItems {
 	public void setItemList(Map<String, Item> itemList) {
 		this.itemList = itemList;
 	}
+
+	public ArrayList<String> getItemNames() {
+		return itemNames;
+	}
+
+	public void setItemNames(ArrayList<String> itemNames) {
+		this.itemNames = itemNames;
+	}
+	
 	
 	
 }

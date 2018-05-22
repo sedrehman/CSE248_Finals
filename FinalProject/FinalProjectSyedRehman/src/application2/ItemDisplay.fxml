@@ -63,7 +63,7 @@
                </children>
             </VBox>
             <Button fx:id="updateButton" layoutX="453.0" layoutY="118.0" mnemonicParsing="false" onAction="#updateButtonClicked" prefHeight="39.0" prefWidth="84.0" text="Update" />
-            <Button fx:id="deleteButton" layoutX="453.0" layoutY="182.0" mnemonicParsing="false" onAction="#daleteButtonClicked" prefHeight="39.0" prefWidth="84.0" text="Delete" />
+            <Button fx:id="deleteButton" layoutX="453.0" layoutY="182.0" mnemonicParsing="false" onAction="#deleteButtonClicked" prefHeight="39.0" prefWidth="84.0" text="Delete" />
             <Label fx:id="result" layoutX="149.0" layoutY="24.0" prefHeight="27.0" prefWidth="409.0" textFill="#a10000">
                <font>
                   <Font size="14.0" />

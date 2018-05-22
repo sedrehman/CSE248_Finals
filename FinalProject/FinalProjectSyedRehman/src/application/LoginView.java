@@ -13,11 +13,11 @@ public class LoginView {
 	private AnchorPane ap2;
 	private Label lEmail;
 	private Label lPass;
+	private Label logInStatus;
 	private TextField tEmail;
 	private PasswordField pf;
 	private Button loginButton;
 	private Button createAccount;
-	private Button forgotPassword;
 	private LoginModel model= new LoginModel();
 	private User user;
 	CreateAccountController cac = new CreateAccountController();
@@ -56,7 +56,7 @@ public class LoginView {
 		
 		
 		pf = new PasswordField();
-		pf.setStyle("-fx-background-color: transparent; -fx-border-color: gray;");
+		pf.setStyle("-fx-background-color: transparent; -fx-border-color: gray; -fx-text-fill: white");
 		pf.setLayoutX(86);
 		pf.setLayoutY(64);
 		pf.setPrefSize(183, 30);
@@ -71,6 +71,14 @@ public class LoginView {
 			if(isLoggedIn == true) {
 				user = model.getUser();
 				dc.setUser(user);
+				if(user.getCartItems()!= null && user.getCartItems().equals("")) {
+					DepartmentControl.userCart += user.getCartItems();
+				}
+				rootPane.getChildren().clear();
+				Label temp = new Label("You're now logged in... ");
+				rootPane.getChildren().add(temp);
+			}else {
+				logInStatus.setText("Wrong UserName/Password");
 			}
 		});
 		
@@ -83,12 +91,12 @@ public class LoginView {
 			rootPane.getChildren().addAll(cac.createAccount());
 		});
 		
-		forgotPassword = new Button("Forgot password?");
-		forgotPassword.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
-		forgotPassword.setLayoutX(77);
-		forgotPassword.setLayoutY(228);
+		logInStatus = new Label();
+		logInStatus.setStyle("-fx-text-fill: white;");
+		logInStatus.setLayoutX(77);
+		logInStatus.setLayoutY(228);
 		
-		itemPane.getChildren().addAll(lEmail, lPass, tEmail, pf, loginButton, createAccount, forgotPassword);
+		itemPane.getChildren().addAll(lEmail, lPass, tEmail, pf, loginButton, createAccount, logInStatus);
 		
 		
 		ap1 = new AnchorPane();

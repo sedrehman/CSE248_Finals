@@ -20,7 +20,7 @@
          <children>
             <Button fx:id="addButton" layoutY="-2.0" mnemonicParsing="false" onAction="#addItems" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Add Items" textFill="WHITE" />
             <Button fx:id="orderButton" layoutY="31.0" mnemonicParsing="false" onAction="#getOrders" prefHeight="0.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="View Orders" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <Button fx:id="orderButton1" layoutY="56.0" mnemonicParsing="false" onAction="#getOrders" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Home" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Button fx:id="home" layoutY="56.0" mnemonicParsing="false" onAction="#homeButtonClicked" prefHeight="32.0" prefWidth="154.0" style="-fx-background-color: transparent;" text="Home" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
          </children>
       </AnchorPane>
    </children>

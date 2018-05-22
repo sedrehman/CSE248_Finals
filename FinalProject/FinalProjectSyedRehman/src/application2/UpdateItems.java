@@ -9,7 +9,7 @@ public class UpdateItems {
 
 	public void update(String name, double price, int itemNumber, String stockLocation, int quantity, String otherInfo,
 			String brand, String safety) {
-		String query = "UPDATE UserList SET name = ?, "
+		String query = "UPDATE ItemList SET name = ?, "
                 + "price = ?, "
                 + "stockLocation = ?, "
                 + "quantity = ?, "

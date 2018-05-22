@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" prefHeight="450.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderControl">
+   <children>
+      <Label layoutX="80.0" layoutY="52.0" prefHeight="43.0" prefWidth="217.0" text="Finilize Your order!" textFill="#1b6b00">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ccn" layoutX="233.0" layoutY="115.0" prefHeight="27.0" prefWidth="262.0" />
+      <Label layoutX="93.0" layoutY="120.0" prefHeight="17.0" prefWidth="124.0" text="Credit Card Number" />
+      <TextField fx:id="security" layoutX="233.0" layoutY="166.0" prefHeight="27.0" prefWidth="61.0" />
+      <Label layoutX="129.0" layoutY="171.0" prefHeight="17.0" prefWidth="88.0" text="Security Code" />
+      <Button fx:id="orderButton" layoutX="234.0" layoutY="225.0" mnemonicParsing="false" onAction="#order" prefHeight="43.0" prefWidth="88.0" text="Order!" />
+   </children>
+</AnchorPane>

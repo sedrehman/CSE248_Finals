@@ -6,50 +6,68 @@ import java.util.Calendar;
 
 public class Order {
 	
+	private int orderNum;
+	private String items;
 	private final String timeStamp = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss").format(
 			Calendar.getInstance().getTime());
-	private double price;
-	private ArrayList<CartItem> items;
-	private User user;
-	
-	public Order() {
+	private String fullName;
+	private String userAddress;
+	private double creditCardNumber;
+	private double total;
+	public Order(String items, String fullName, String userAddress, double creditCardNumber,
+			double total) {
 		super();
-	}
-	public Order(User user, double price, ArrayList<CartItem> items) {
-		super();
-		this.price = price;
 		this.items = items;
-		this.user = user;
+		this.fullName = fullName;
+		this.userAddress = userAddress;
+		this.creditCardNumber = creditCardNumber;
+		this.total = total;
 	}
-	
-	public double getPrice() {
-		return price;
+	public int getOrderNum() {
+		return orderNum;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setOrderNum(int orderNum) {
+		this.orderNum = orderNum;
 	}
-	public ArrayList<CartItem> getItems() {
+	public String getItems() {
 		return items;
 	}
-	public void setItems(ArrayList<CartItem> items) {
+	public void setItems(String items) {
 		this.items = items;
+	}
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+	public String getUserAddress() {
+		return userAddress;
+	}
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
+	}
+	public double getCreditCardNumber() {
+		return creditCardNumber;
+	}
+	public void setCreditCardNumber(double creditCardNumber) {
+		this.creditCardNumber = creditCardNumber;
+	}
+	public double getTotal() {
+		return total;
+	}
+	public void setTotal(double total) {
+		this.total = total;
 	}
 	public String getTimeStamp() {
 		return timeStamp;
 	}
-	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
 	@Override
 	public String toString() {
-		return "Order [timeStamp=" + timeStamp + ", User=" + user.toString()+ ", price=" + price + ", items=" + items + "]";
+		return "Order [orderNum=" + orderNum + ", items=" + items + ", timeStamp=" + timeStamp + ", fullName="
+				+ fullName + ", userAddress=" + userAddress + ", creditCardNumber=" + creditCardNumber + ", total="
+				+ total + "]";
 	}
-	
-	
 	
 	
 }

@@ -17,10 +17,9 @@
 			<children>
 				<Label layoutX="31.0" layoutY="36.0" prefHeight="17.0" prefWidth="51.0" text=" Email:" textFill="WHITE" />
 				<Label layoutX="8.0" layoutY="70.0" prefHeight="17.0" prefWidth="80.0" text="Password:" textFill="WHITE" />
-				<TextField fx:id="userNameField" layoutX="86.0" layoutY="30.0" prefHeight="30.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: gray;" />
-				<PasswordField fx:id="passwordField" layoutX="86.0" layoutY="64.0" prefHeight="30.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: gray;" />
+				<TextField fx:id="userNameField" layoutX="86.0" layoutY="30.0" prefHeight="30.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: white;" />
+				<PasswordField fx:id="passwordField" layoutX="86.0" layoutY="64.0" prefHeight="30.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: white;" />
 				<Button fx:id="loginButton" layoutX="80.0" layoutY="122.0" mnemonicParsing="false" onAction="#login" prefHeight="29.0" prefWidth="75.0" style="-fx-background-color: transparent; -fx-border-color: green;" text="Log in!" textFill="WHITE" />
-				<Button layoutX="77.0" layoutY="228.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Forgot Password?" textFill="WHITE" />
 				<Button layoutX="77.0" layoutY="195.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Create a New Account" textFill="WHITE" />
 			</children>
 		</AnchorPane>

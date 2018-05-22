@@ -41,9 +41,9 @@ public class MainWindowController implements Initializable{
 	
     @FXML
     void addItems(ActionEvent event) {
+    		cleaningMethod();
     		addButton.setStyle("-fx-background-color: #9FB2C4; ");
     		AddItemController aic = new AddItemController();
-    		ap.getChildren().clear();
     		ap.getChildren().add(aic.getPane());
     }
 
@@ -62,12 +62,12 @@ public class MainWindowController implements Initializable{
 		ap.getChildren().add(itemList);
 		itemList.setPrefSize(ap.getWidth(), ap.getHeight());
 		itemSelected(); // this is when someone selects an item!
+		
     }
 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		homeButtonClicked(new ActionEvent());
 		
 	}
 	
@@ -89,9 +89,12 @@ public class MainWindowController implements Initializable{
 		itemList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
 			if (newValue != null) {
 				// newValue is just a String here. Its the name of the item;
-				ap.getChildren().clear();
 				chosenItem = loadItems.getItem(newValue); // takes the newValue and find the item with that name;
-				
+				cleaningMethod(); // just clearning out the selectrions and buttons.. 
+				//System.out.println(newValue);
+				//System.out.println(chosenItem.toString());
+				DisplayItemController dic = new DisplayItemController();
+				ap.getChildren().add(dic.getPane());
 
 			} else {
 				// nada
