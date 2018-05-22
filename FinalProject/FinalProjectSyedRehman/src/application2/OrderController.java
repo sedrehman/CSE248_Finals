@@ -17,40 +17,40 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-public class OrderController implements Initializable{
-	 @FXML
-	    private AnchorPane mainPane;
+public class OrderController implements Initializable {
+	@FXML
+	private AnchorPane mainPane;
 
-	    @FXML
-	    private Label orderNum;
+	@FXML
+	private Label orderNum;
 
-	    @FXML
-	    private Label items;
+	@FXML
+	private Label items;
 
-	    @FXML
-	    private Label time;
+	@FXML
+	private Label time;
 
-	    @FXML
-	    private Label name;
+	@FXML
+	private Label name;
 
-	    @FXML
-	    private Label address;
+	@FXML
+	private Label address;
 
-	    @FXML
-	    private Label card;
+	@FXML
+	private Label card;
 
-	    @FXML
-	    private Label total;
+	@FXML
+	private Label total;
 
-	    @FXML
-	    private Button ship;
+	@FXML
+	private Button ship;
 
-	    @FXML
-	    private Button delete;
+	@FXML
+	private Button delete;
 
-	    private MainWindowController mwc = new MainWindowController();
-	    private Order order = mwc.chosenOrder;
-	    
+	private MainWindowController mwc = new MainWindowController();
+	private Order order = mwc.chosenOrder;
+
 	@FXML
 	void deleteClicked(ActionEvent event) {
 		DeleteOrder d = new DeleteOrder();
@@ -67,31 +67,34 @@ public class OrderController implements Initializable{
 		DeleteOrder d = new DeleteOrder();
 		if (order != null) {
 			d.delete(order.getOrderNum());
-			mainPane.getChildren().clear();
-			Label lbl = new Label("deleted order!");
-			mainPane.getChildren().add(lbl);
+			File file = new File("E:\\" + "Order1" + ".txt");
+			int increase=1;
+			while(file.exists()){
+			     increase++;
+			     file = new File("E:\\" + "Order" + increase+ ".txt");
+			} 
+			if(!file.exists()) {
+			   try {
+
+				   String content = order.toString();
+				   file.createNewFile();
+
+				   FileWriter fw = new FileWriter(file.getAbsoluteFile());
+				   BufferedWriter bw = new BufferedWriter(fw);
+				   bw.write(content);
+				   bw.close();
+
+				   System.out.println("Done");
+			   }catch (IOException e){
+				   e.printStackTrace();
+			   }
+			
+			   mainPane.getChildren().clear();
+			   Label lbl = new Label("deleted order!");
+			   mainPane.getChildren().add(lbl);
+			}
 		}
-		File file = new File("E:\\" + "Order1" + ".txt");
-		int increase=1;
-		while(file.exists()){
-		     increase++;
-		     file = new File("E:\\" + "Order" + increase+ ".txt");
-		} 
-		if(!file.exists()) {
-		   try {
-
-		    String content = order.toString();
-		    file.createNewFile();
-
-		    FileWriter fw = new FileWriter(file.getAbsoluteFile());
-		    BufferedWriter bw = new BufferedWriter(fw);
-		    bw.write(content);
-		    bw.close();
-
-		    System.out.println("Done");
-
-		}catch (IOException e){
-		   }
+	
 	}
 
 	@Override
